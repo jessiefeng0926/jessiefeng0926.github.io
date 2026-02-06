@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Damping Cancellation Kit | LinesRacing</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        accent: '#E61E2A',
+                        secondary: '#333333',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .bg-gradient-dark {
+                background: linear-gradient(to bottom, #000000, #222222);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+    
+    <!-- 新增页面加载过渡样式 -->
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-primary text-white font-sans scrollbar-hide">
+    <!-- 导航栏 -->
+    <nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <!-- 修复1：替换为通用占位图（实际使用时替换为你的Logo URL） -->
+                <a href="./" title="返回首页" class="hover:opacity-90 transition-all duration-300">
+                    <img 
+                        src="https://cdn.yun.sooce.cn/6/66097/png/1769996434744cd99abb45d74c6668f953a28bd0c435f.png!list?version=1769996436"
+                        alt="LinesRacing"
+                        class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300"
+                    >
+                </a>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#product" class="hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Product</a>
+                <a href="#features" class="hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Features</a>
+                <a href="#contact" class="hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
+                <a href="#purchase" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+            </div>
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
+            <div class="flex flex-col gap-4">
+                <a href="#product" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Product</a>
+                <a href="#features" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Features</a>
+                <a href="#contact" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Contact</a>
+                <a href="#purchase" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区 - 产品主图展示 -->
+    <header id="product" class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <!-- 产品主图 -->
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+                        <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/96dda2985f384cb6a999884badfed08c.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601291630102D11614B3371D0264709&rrcfp=8a172a1a&x-expires=1770280211&x-signature=3BxpNMlx5BOgEQs7%2B5G7cNwtcdY%3D" 
+                             alt="Electronic Damping Cancellation Kit" 
+                             class="w-full h-auto hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
+                        Electronic Damping<br>
+                        <span class="text-accent">Cancellation Kit</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0">
+                        Premium quality electronic damping cancellation solution designed for automotive performance enthusiasts. Engineered for perfect fit and reliable performance.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#features" class="bg-accent text-white px-8 py-3 rounded-lg hover:bg-accent/90 transition-colors font-medium hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
+                            View Features
+                        </a>
+                        <a href="#purchase" class="border border-accent text-accent px-8 py-3 rounded-lg hover:bg-accent/10 transition-colors font-medium hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            Get Pricing
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 核心卖点区 -->
+    <section id="features" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 text-shadow">
+                Key <span class="text-accent">Features</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 卖点1 -->
+                <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-code-slash text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Error Code Prevention</h3>
+                    <p class="text-gray-400">
+                        Eliminates unwanted error codes and warning lights on your dashboard, ensuring seamless integration with your vehicle's electronics.
+                    </p>
+                </div>
+                
+                <!-- 卖点2 -->
+                <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-plug-circle-bolt text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Plug-and-Play Installation</h3>
+                    <p class="text-gray-400">
+                        Simple and straightforward installation process with no special tools required - install in minutes without professional help.
+                    </p>
+                </div>
+                
+                <!-- 卖点3 -->
+                <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-puzzle-piece text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Aftermarket Compatibility</h3>
+                    <p class="text-gray-400">
+                        Fully compatible with all major aftermarket suspension and performance parts for maximum flexibility.
+                    </p>
+                </div>
+                
+                <!-- 卖点4 -->
+                <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-car-side text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Vehicle Specific Design</h3>
+                    <p class="text-gray-400">
+                        Precision engineered for your specific vehicle make and model, ensuring perfect fitment and optimal performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 购买咨询区 -->
+    <section id="purchase" class="py-20 bg-primary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="bg-secondary rounded-2xl p-8 md:p-12 border border-gray-800 max-w-4xl mx-auto hover:shadow-xl hover:shadow-accent/5 transition-all duration-300">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-8 text-center text-shadow">
+                    Get Your <span class="text-accent">EDC Kit</span>
+                </h2>
+                <p class="text-gray-300 text-center mb-10 max-w-2xl mx-auto">
+                    Fill out the form below to get pricing information or to place your order. Our team will respond within 24 hours.
+                </p>
+                
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="quoteForm">
+                    <div class="md:col-span-2">
+                        <label for="name" class="block text-gray-300 mb-2">Full Name <span class="text-accent">*</span></label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="email" class="block text-gray-300 mb-2">Email Address <span class="text-accent">*</span></label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div>
+                        <label for="vehicle" class="block text-gray-300 mb-2">Vehicle Make/Model <span class="text-accent">*</span></label>
+                        <input type="text" id="vehicle" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="BMW M3 2022" required>
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-gray-300 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="+1 (555) 123-4567">
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="message" class="block text-gray-300 mb-2">Message (Optional)</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors resize-none" placeholder="Any specific questions or requirements?"></textarea>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <button type="submit" class="w-full bg-accent text-white py-4 rounded-lg hover:bg-accent/90 transition-all duration-300 font-semibold text-lg hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1">
+                            Request Quote
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系信息区 -->
+    <section id="contact" class="py-16 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div class="bg-primary p-8 rounded-xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
+                        <i class="fa-solid fa-envelope text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                    <p class="text-gray-400">info@cnracing.com</p>
+                </div>
+                
+                <div class="bg-primary p-8 rounded-xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
+                        <i class="fa-solid fa-phone text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                    <p class="text-gray-400">86 519 83906955</p>
+                </div>
+                
+                <div class="bg-primary p-8 rounded-xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
+                        <i class="fa-solid fa-location-dot text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
+                    <p class="text-gray-400">No.,65-18,Xinggang Road, Zhonglou , Changzhou, China</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-2 mb-6 md:mb-0">
+                    <!-- 修复2：替换为通用占位图（实际使用时替换为你的Logo URL） -->
+                    <img 
+                        src="https://cdn.yun.sooce.cn/6/66097/png/1769996434744cd99abb45d74c6668f953a28bd0c435f.png!list?version=1769996436"
+                        alt="LinesRacing"
+                        class="h-9 w-auto px-1"
+                    >
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2026 LinesRacing. All rights reserved. Designed for automotive performance enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent/90 hover:scale-110 z-40">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 回到顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+            
+            // 导航栏滚动效果
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 平滑滚动导航
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 关闭移动端菜单
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const icon = menuBtn.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    
+                    // 平滑滚动（偏移导航栏高度）
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 表单提交处理（优化：使用更友好的提示而非alert）
+        const quoteForm = document.getElementById('quoteForm');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 简单的表单验证
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const vehicle = document.getElementById('vehicle').value.trim();
+                
+                if (name && email && vehicle) {
+                    // 创建成功提示元素
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'md:col-span-2 bg-green-900/50 border border-green-700 text-green-300 p-4 rounded-lg text-center mt-4';
+                    successMsg.textContent = `Thank you ${name}! Your quote request has been submitted successfully. We will contact you at ${email} within 24 hours.`;
+                    quoteForm.appendChild(successMsg);
+                    
+                    // 重置表单
+                    quoteForm.reset();
+                    
+                    // 3秒后移除提示
+                    setTimeout(() => {
+                        successMsg.remove();
+                    }, 5000);
+                } else {
+                    // 创建错误提示元素
+                    const errorMsg = document.createElement('div');
+                    errorMsg.className = 'md:col-span-2 bg-red-900/50 border border-red-700 text-red-300 p-4 rounded-lg text-center mt-4';
+                    errorMsg.textContent = 'Please fill in all required fields (Name, Email, Vehicle Make/Model)';
+                    quoteForm.appendChild(errorMsg);
+                    
+                    // 3秒后移除提示
+                    setTimeout(() => {
+                        errorMsg.remove();
+                    }, 3000);
+                }
+            });
+        }
+
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            document.body.classList.add('opacity-100');
+        });
+        
+        // 优化：点击外部区域关闭移动端菜单
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
