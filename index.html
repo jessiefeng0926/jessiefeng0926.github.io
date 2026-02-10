@@ -53,9 +53,11 @@
     </div>
     <div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
         <div class="flex flex-col gap-4">
-            <a href="#product" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Product</a>
-            <a href="#features" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Features</a>
-            <a href="#contact" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Contact</a>
+            <!-- 新增 text-white 类名 -->
+            <a href="#product" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Product</a>
+            <a href="#features" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Features</a>
+            <a href="#contact" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Contact</a>
+            <!-- Buy Now 按钮已默认是 text-white，保持不变 -->
             <a href="#purchase" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
         </div>
     </div>
@@ -72,7 +74,8 @@
                 </div>
             </div>
             <div class="md:w-1/2 text-center md:text-left">
-                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
+                <!-- 新增 text-white 类名 -->
+                <h1 class="text-white text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
                     Electronic Damping<br>
                     <span class="text-accent">Cancellation Kit</span>
                 </h1>
