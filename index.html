@@ -49,24 +49,20 @@
             </a>
         </div>
         <div class="hidden md:flex items-center gap-8">
-            <!-- 新增 text-white 类名 -->
             <a href="#product" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Product</a>
             <a href="#features" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Features</a>
             <a href="#contact" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
             <a href="#purchase" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
       </div>
-        <!-- 移动端菜单按钮（改为onclick） -->
         <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none" onclick="toggleMenu()">
             <i class="fa-solid fa-bars"></i>
         </button>
     </div>
     <div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
         <div class="flex flex-col gap-4">
-            <!-- 新增 text-white 类名 -->
             <a href="#product" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Product</a>
             <a href="#features" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Features</a>
             <a href="#contact" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Contact</a>
-            <!-- Buy Now 按钮已默认是 text-white，保持不变 -->
             <a href="#purchase" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
         </div>
     </div>
@@ -83,7 +79,6 @@
                 </div>
             </div>
             <div class="md:w-1/2 text-center md:text-left">
-                <!-- 新增 text-white 类名 -->
                 <h1 class="text-white text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
                     Electronic Damping<br>
                     <span class="text-accent">Cancellation Kit</span>
@@ -110,11 +105,9 @@
             <span class="text-white">Key</span> <span class="text-accent">Features</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <!-- 修正后的 Error Code Prevention 卡片 -->
 <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-    <!-- 关键修改：bg-accent/10 + text-accent，和其他卡片保持一致 -->
     <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-        <i class="fa-solid fa-triangle-exclamation text-accent text-accent text-xl"></i>
+        <i class="fa-solid fa-triangle-exclamation text-accent text-xl"></i>
     </div>
     <h3 class="text-xl font-semibold mb-2 text-white">Error Code Prevention</h3>
     <p class="text-gray-400">
@@ -122,7 +115,6 @@
     </p>
 </div>
 
-            <!-- 第二个卡片：Plug-and-Play Installation（已有图标，参考） -->
             <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
                 <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
                     <i class="fa-solid fa-plug-circle-bolt text-accent text-xl"></i>
@@ -133,7 +125,6 @@
                 </p>
             </div>
 
-            <!-- 第三个/第四个卡片（保持不变） -->
             <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
                 <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
                     <i class="fa-solid fa-puzzle-piece text-accent text-xl"></i>
@@ -156,10 +147,8 @@
     </div>
 </section>
 
-<!-- 核心修改：将section的bg-secondary改为bg-black，保留表单容器#333333背景 -->
 <section id="contact" class="py-20 bg-black">
     <div class="container mx-auto px-4 md:px-8">
-        <!-- 表单容器保留#333333灰色，仅调整边框增强对比 -->
         <div class="max-w-3xl mx-auto bg-[#333333] rounded-2xl p-8 md:p-12 border border-gray-700 shadow-lg">
             <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-6 text-white">
                 Get Your <span class="text-accent">EDC Kit</span>
@@ -167,10 +156,11 @@
             <p class="text-gray-300 text-center mb-10">
                 Fill out the form below to get pricing information or to place your order. Our team will respond within 24 hours.
             </p>
-            <form class="space-y-6">
+            
+            <!-- 我已经帮你加了 id="quoteForm" 和 onsubmit -->
+            <form id="quoteForm" class="space-y-6" onsubmit="submitForm(event)">
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
-                    <!-- 输入框保留原有灰色背景（bg-black/50），不修改 -->
                     <input type="text" id="name" placeholder="John Doe" class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-accent">
                 </div>
                 <div>
@@ -206,7 +196,6 @@
                 <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
                     <i class="fa-solid fa-envelope text-accent text-xl"></i>
                 </div>
-                <!-- 添加 text-white -->
                 <h3 class="text-xl font-semibold mb-2 text-white">Email Us</h3>
                 <p class="text-gray-400">info@cnracing.com</p>
             </div>
@@ -214,7 +203,6 @@
                 <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
                     <i class="fa-solid fa-phone text-accent text-xl"></i>
                 </div>
-                <!-- 添加 text-white -->
                 <h3 class="text-xl font-semibold mb-2 text-white">Call Us</h3>
                 <p class="text-gray-400">86 519 83906955</p>
             </div>
@@ -222,7 +210,6 @@
                 <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
                     <i class="fa-solid fa-location-dot text-accent text-xl"></i>
                 </div>
-                <!-- 添加 text-white -->
                 <h3 class="text-xl font-semibold mb-2 text-white">Visit Us</h3>
                 <p class="text-gray-400">No.,65-18,Xinggang Road, Zhonglou , Changzhou, China</p>
             </div>
@@ -264,7 +251,7 @@
     <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-<!-- 简化版JS（替换addEventListener为onclick/onscroll） -->
+<!-- 简化版JS（转化代码已嵌入） -->
 <script>
     // 移动端菜单切换
     function toggleMenu() {
@@ -306,28 +293,34 @@
         }
     };
 
-    // 表单提交
-    function submitForm(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const vehicle = document.getElementById('vehicle').value.trim();
+// 表单提交（已嵌入Google Ads转化）
+function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const vehicle = document.getElementById('vehicle').value.trim();
+    
+    if (name && email && vehicle) {
         
-        if (name && email && vehicle) {
-            const successMsg = document.createElement('div');
-            successMsg.className = 'md:col-span-2 bg-green-900/50 border border-green-700 text-green-300 p-4 rounded-lg text-center mt-4';
-            successMsg.textContent = `Thank you ${name}! Your quote request has been submitted successfully. We will contact you at ${email} within 24 hours.`;
-            document.getElementById('quoteForm').appendChild(successMsg);
-            document.getElementById('quoteForm').reset();
-            setTimeout(() => successMsg.remove(), 5000);
-        } else {
-            const errorMsg = document.createElement('div');
-            errorMsg.className = 'md:col-span-2 bg-red-900/50 border border-red-700 text-red-300 p-4 rounded-lg text-center mt-4';
-            errorMsg.textContent = 'Please fill in all required fields (Name, Email, Vehicle Make/Model)';
-            document.getElementById('quoteForm').appendChild(errorMsg);
-            setTimeout(() => errorMsg.remove(), 3000);
-        }
+        // ======================
+        // Google Ads 转化已加好
+        // ======================
+        gtag('event', 'conversion', {'send_to': 'AW-17871949048/DuDzCMOY3fcbEPiZgcpC'});
+        
+        const successMsg = document.createElement('div');
+        successMsg.className = 'md:col-span-2 bg-green-900/50 border border-green-700 text-green-300 p-4 rounded-lg text-center mt-4';
+        successMsg.textContent = `Thank you ${name}! Your quote request has been submitted successfully. We will contact you at ${email} within 24 hours.`;
+        document.getElementById('quoteForm').appendChild(successMsg);
+        document.getElementById('quoteForm').reset();
+        setTimeout(() => successMsg.remove(), 5000);
+    } else {
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'md:col-span-2 bg-red-900/50 border border-red-700 text-red-300 p-4 rounded-lg text-center mt-4';
+        errorMsg.textContent = 'Please fill in all required fields (Name, Email, Vehicle Make/Model)';
+        document.getElementById('quoteForm').appendChild(errorMsg);
+        setTimeout(() => errorMsg.remove(), 3000);
     }
+}
 
     // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
