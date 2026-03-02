@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinesRacing FAQ - Answers to Common EDC Kit Questions</title>
+    <meta name="description" content="LinesRacing EDC Kit Frequently Asked Questions - Installation, compatibility, warranty, and technical support for electronic damping cancellation kits.">
+    
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17871949048"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17871949048');
+    </script>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        accent: '#E61E2A',
+                        secondary: '#333333',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important; }
+        .bg-gradient-dark { background: linear-gradient(to bottom, #000000, #222222) !important; }
+        .scrollbar-hide::-webkit-scrollbar { display: none !important; }
+        .scrollbar-hide { -ms-overflow-style: none !important; scrollbar-width: none !important; }
+        body { opacity: 1 !important; transition: opacity 0.5s ease-in-out !important; }
+        .faq-answer { display: none; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation (Same as Product Page) -->
+    <nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <a href="./index.html" title="返回首页" class="hover:opacity-90 transition-all duration-300">
+                    <img src="./linesracing-logo1.png"
+                         alt="LinesRacing"
+                         class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
+                </a>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+    <a href="/Product.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Product</a>
+    <a href="/shop-by-vehicle.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Shop By Vehicle</a>
+    <a href="/FAQ.html" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all">FAQ</a>
+    <a href="/contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
+    <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+</div>
+<div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
+    <div class="flex flex-col gap-4">
+        <a href="/Product.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Product</a>
+        <a href="/shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
+        <a href="/FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
+        <a href="/contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
+        <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+    </div>
+</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
+                Frequently Asked <span class="text-accent">Questions</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Find answers to the most common questions about our EDC cancellation kits, installation, compatibility, and support.
+            </p>
+            
+            <!-- FAQ Search -->
+            <div class="max-w-xl mx-auto">
+                <div class="relative">
+                    <input type="text" id="faqSearch" placeholder="Search for answers..." 
+                           class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 pl-10 text-white focus:outline-none focus:ring-2 focus:ring-accent">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FAQ Categories -->
+    <section class="py-16 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="faq-category-btn active px-6 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors" onclick="filterFAQs('all')">
+                    All Questions
+                </button>
+                <button class="faq-category-btn px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors" onclick="filterFAQs('installation')">
+                    Installation
+                </button>
+                <button class="faq-category-btn px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors" onclick="filterFAQs('compatibility')">
+                    Compatibility
+                </button>
+                <button class="faq-category-btn px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors" onclick="filterFAQs('warranty')">
+                    Warranty & Support
+                </button>
+                <button class="faq-category-btn px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors" onclick="filterFAQs('technical')">
+                    Technical
+                </button>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="max-w-4xl mx-auto">
+                <!-- Installation FAQ 1 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="installation">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">How difficult is the installation process?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            Our EDC kits are designed for <strong>plug-and-play installation</strong> with no special tools required. Most customers with basic mechanical knowledge can complete the installation in 25-30 minutes.
+                        </p>
+                        <p>
+                            We provide detailed step-by-step instructions with photos and video tutorials. No wire cutting, soldering, or programming is needed - simply connect the OEM-style plugs to your vehicle's suspension connectors.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Installation FAQ 2 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="installation">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">Do I need professional installation?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            Professional installation is <strong>not required</strong> - 95% of our customers install the kit themselves successfully. However, if you're uncomfortable working on your vehicle, any qualified mechanic or tuning shop can install it in under 30 minutes.
+                        </p>
+                        <p>
+                            We offer free technical support for DIY installers and have a network of authorized installers worldwide if you prefer professional help.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Compatibility FAQ 1 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="compatibility">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">Will this work with my aftermarket suspension?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            Yes! Our EDC kits are fully compatible with all major aftermarket suspension brands including:
+                        </p>
+                        <ul class="list-disc pl-6 mb-4 space-y-1">
+                            <li>KW Suspensions (V1, V2, V3, Clubsport)</li>
+                            <li>BC Racing (BR, RM, DS Series)</li>
+                            <li>Ohlins (Road & Track, TTX)</li>
+                            <li>Bilstein (B16, B14, Clubsport)</li>
+                            <li>H&R (VTF, RSS)</li>
+                            <li>AST Suspension</li>
+                        </ul>
+                        <p>
+                            If your suspension brand isn't listed, contact us - we've tested compatibility with over 50 suspension manufacturers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Compatibility FAQ 2 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="compatibility">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">Is the kit vehicle-specific or universal?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p>
+                            Our kits are <strong>100% vehicle-specific</strong>, not universal. We design each kit specifically for your vehicle's make, model, year, and factory suspension type (EDC, PASM, Magnetic Ride, AMG Ride Control).
+                        </p>
+                        <p class="mt-2">
+                            This vehicle-specific design ensures perfect fitment, plug-and-play installation, and 100% error code elimination - something universal kits cannot guarantee.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Warranty FAQ 1 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="warranty">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">What does the 2-year warranty cover?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            Our 2-year manufacturer warranty covers:
+                        </p>
+                        <ul class="list-disc pl-6 mb-4 space-y-1">
+                            <li>Manufacturing defects in materials and workmanship</li>
+                            <li>Electronic component failures under normal use</li>
+                            <li>Waterproofing issues (IP67 rating)</li>
+                            <li>Connector and wiring failures</li>
+                            <li>Error code recurrence (installation issues excluded)</li>
+                        </ul>
+                        <p>
+                            The warranty does not cover physical damage from improper installation, accidents, or misuse. We offer free replacement for warranty-covered issues with no labor costs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Warranty FAQ 2 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="warranty">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">What kind of technical support do you offer?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            We provide comprehensive technical support including:
+                        </p>
+                        <ul class="list-disc pl-6 mb-4 space-y-1">
+                            <li>24/7 email support (response within 4 hours)</li>
+                            <li>Phone support (Mon-Fri, 9AM-8PM CET)</li>
+                            <li>Video call troubleshooting for installation issues</li>
+                            <li>Detailed installation videos and manuals</li>
+                            <li>Vehicle-specific wiring diagrams</li>
+                            <li>Community forum with 5,000+ members</li>
+                        </ul>
+                        <p>
+                            Our technical team consists of automotive electronics specialists with 10+ years of experience in suspension systems.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Technical FAQ 1 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="technical">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">How does the EDC kit eliminate error codes?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            Our EDC kits use advanced CAN bus emulation technology that communicates directly with your vehicle's ECU (Engine Control Unit). The kit:
+                        </p>
+                        <ul class="list-disc pl-6 mb-4 space-y-1">
+                            <li>Replicates the factory EDC/PASM/Magnetic Ride sensor signals</li>
+                            <li>Provides constant, valid data to the vehicle's computer</li>
+                            <li>Prevents fault detection by the onboard diagnostic system</li>
+                            <li>Maintains normal operation of other vehicle systems (ESP, ABS, etc.)</li>
+                        </ul>
+                        <p>
+                            Unlike resistor-based universal kits that only mask errors temporarily, our active emulation provides permanent error code elimination.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Technical FAQ 2 -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="technical">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">Will this affect my vehicle's safety systems?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            No. Our EDC kits are designed to maintain full functionality of all vehicle safety systems including:
+                        </p>
+                        <ul class="list-disc pl-6 mb-4 space-y-1">
+                            <li>Electronic Stability Program (ESP)</li>
+                            <li>Anti-lock Braking System (ABS)</li>
+                            <li>Traction Control (TC)</li>
+                            <li>Adaptive Cruise Control</li>
+                            <li>Collision Avoidance Systems</li>
+                        </ul>
+                        <p>
+                            The kit only communicates with the suspension control module and does not interfere with any other vehicle systems. All our products are tested to meet OEM safety standards and are JAMA certified.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- General FAQ -->
+                <div class="faq-item mb-4 bg-primary rounded-xl border border-gray-800" data-category="general">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center hover:bg-primary/80 transition-colors" onclick="toggleFAQ(this)">
+                        <h3 class="text-xl font-semibold">Will this void my vehicle's warranty?</h3>
+                        <i class="fa-solid fa-chevron-down faq-icon text-accent transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6 text-gray-300">
+                        <p class="mb-4">
+                            Under the Magnuson-Moss Warranty Act (US) and similar consumer protection laws worldwide, a vehicle manufacturer cannot void your entire warranty simply for installing an aftermarket part.
+                        </p>
+                        <p class="mb-4">
+                            Our plug-and-play design requires no permanent modifications to your vehicle - the kit can be easily removed without leaving any traces.
+                        </p>
+                        <p>
+                            If a dealer attempts to deny warranty coverage, they must prove that our product caused the specific issue you're claiming under warranty - a high legal bar to meet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Still Have Questions -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold mb-6">Still have questions?</h3>
+                <p class="text-gray-300 mb-8 max-w-xl mx-auto">
+                    If you can't find the answer to your question here, our technical support team is ready to help.
+                </p>
+                <a href="./index.html#contact" class="inline-block bg-accent text-white px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors font-bold text-lg hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
+                    Contact Our Support Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-dark">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold mb-6 text-shadow">
+                Ready to <span class="text-accent">Upgrade</span> Your Suspension?
+            </h2>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Join thousands of satisfied customers who have eliminated error codes and unlocked their vehicle's full potential.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="./index.html#purchase" class="bg-accent text-white px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors font-bold text-lg hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
+                    Buy Your EDC Kit Today
+                </a>
+                <a href="./product.html#compatibility" class="border border-accent text-accent px-8 py-4 rounded-lg hover:bg-accent/10 transition-colors font-bold text-lg hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                    Check Vehicle Compatibility
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as Product Page) -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-2 mb-6 md:mb-0">
+                    <img src="./linesracing-logo1.png"
+                         alt="LinesRacing"
+                         class="h-9 w-auto px-1">
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2026 LinesRacing. All rights reserved. Designed for automotive performance enthusiasts.</p>
+                <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" 
+                   class="text-gray-400 hover:text-white text-sm block mt-2">
+                    苏ICP备2026008120号
+                </a>
+                <div class="mt-4 flex justify-center gap-6 text-sm">
+                    <a href="./privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="./terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent/90 hover:scale-110 z-40" onclick="backToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+            const icon = document.querySelector('#menuBtn i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Back to Top
+        function backToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll Events
+        window.onscroll = function() {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+            
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        };
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+            
+            // Close other open FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // FAQ Filter
+        function filterFAQs(category) {
+            // Update active category button
+            document.querySelectorAll('.faq-category-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-accent');
+                btn.classList.add('bg-primary');
+            });
+            event.target.classList.add('active', 'bg-accent');
+            event.target.classList.remove('bg-primary');
+            
+            // Filter FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // FAQ Search
+        document.getElementById('faqSearch').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Reset category buttons when searching
+            document.querySelectorAll('.faq-category-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-accent');
+                btn.classList.add('bg-primary');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.onclick = function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        document.querySelector('#menuBtn i').classList.remove('fa-times');
+                        document.querySelector('#menuBtn i').classList.add('fa-bars');
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+</html>

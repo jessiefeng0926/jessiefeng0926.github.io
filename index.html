@@ -1,320 +1,613 @@
-<!-- 外部资源引入（保留） -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<!-- Tailwind配置（移除@layer，改为普通CSS） -->
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#111111',
-                    accent: '#E61E2A',
-                    secondary: '#333333',
-                    light: '#F5F5F5'
-                },
-                fontFamily: {
-                    sans: ['Arial', 'Helvetica', 'sans-serif'],
-                },
-            }
-        }
-    }
-</script>
-
-<!-- 自定义样式（加!important避免被平台覆盖） -->
-<style>
-    .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important; }
-    .bg-gradient-dark { background: linear-gradient(to bottom, #000000, #222222) !important; }
-    .scrollbar-hide::-webkit-scrollbar { display: none !important; }
-    .scrollbar-hide { -ms-overflow-style: none !important; scrollbar-width: none !important; }
-    body { opacity: 1 !important; transition: opacity 0.5s ease-in-out !important; }
-</style>
-
-<!-- 页面核心内容（原body内所有代码，保留） -->
-<nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
-    <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <a href="./" title="返回首页" class="hover:opacity-90 transition-all duration-300">
-                <img src="https://cdn.yun.sooce.cn/6/66097/png/1769996434744cd99abb45d74c6668f953a28bd0c435f.png!list?version=1769996436"
-                     alt="LinesRacing"
-                     class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
-            </a>
-        </div>
-        <div class="hidden md:flex items-center gap-8">
-            <a href="#product" class="hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Product</a>
-            <a href="#features" class="hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Features</a>
-            <a href="#contact" class="hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
-            <a href="#purchase" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
-        </div>
-        <!-- 移动端菜单按钮（改为onclick） -->
-        <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-    </div>
-    <div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
-        <div class="flex flex-col gap-4">
-            <a href="#product" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Product</a>
-            <a href="#features" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Features</a>
-            <a href="#contact" class="py-2 hover:text-accent transition-colors border-b border-gray-800">Contact</a>
-            <a href="#purchase" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
-        </div>
-    </div>
-</nav>
-
-<header id="product" class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
-                <div class="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
-                    <img src="https://p3-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/96dda2985f384cb6a999884badfed08c.jpg~tplv-a9rns2rl98-24:720:720.image?lk3s=8e244e95&rcl=202601291630102D11614B3371D0264709&rrcfp=8a172a1a&x-expires=1770280211&x-signature=3BxpNMlx5BOgEQs7%2B5G7cNwtcdY%3D" 
-                         alt="Electronic Damping Cancellation Kit" 
-                         class="w-full h-auto hover:scale-105 transition-transform duration-700">
-                </div>
-            </div>
-            <div class="md:w-1/2 text-center md:text-left">
-                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
-                    Electronic Damping<br>
-                    <span class="text-accent">Cancellation Kit</span>
-                </h1>
-                <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0">
-                    Premium quality electronic damping cancellation solution designed for automotive performance enthusiasts. Engineered for perfect fit and reliable performance.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#features" class="bg-accent text-white px-8 py-3 rounded-lg hover:bg-accent/90 transition-colors font-medium hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
-                        View Features
-                    </a>
-                    <a href="#purchase" class="border border-accent text-accent px-8 py-3 rounded-lg hover:bg-accent/10 transition-colors font-medium hover:shadow-lg transform hover:-translate-y-1 duration-300">
-                        Get Pricing
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<section id="features" class="py-20 bg-secondary">
-    <div class="container mx-auto px-4 md:px-8">
-        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 text-shadow">
-            Key <span class="text-accent">Features</span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-code-slash text-accent text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-4">Error Code Prevention</h3>
-                <p class="text-gray-400">
-                    Eliminates unwanted error codes and warning lights on your dashboard, ensuring seamless integration with your vehicle's electronics.
-                </p>
-            </div>
-            <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-plug-circle-bolt text-accent text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-4">Plug-and-Play Installation</h3>
-                <p class="text-gray-400">
-                    Simple and straightforward installation process with no special tools required - install in minutes without professional help.
-                </p>
-            </div>
-            <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-puzzle-piece text-accent text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-4">Aftermarket Compatibility</h3>
-                <p class="text-gray-400">
-                    Fully compatible with all major aftermarket suspension and performance parts for maximum flexibility.
-                </p>
-            </div>
-            <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-                <div class="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                    <i class="fa-solid fa-car-side text-accent text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-4">Vehicle Specific Design</h3>
-                <p class="text-gray-400">
-                    Precision engineered for your specific vehicle make and model, ensuring perfect fitment and optimal performance.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="purchase" class="py-20 bg-primary">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="bg-secondary rounded-2xl p-8 md:p-12 border border-gray-800 max-w-4xl mx-auto hover:shadow-xl hover:shadow-accent/5 transition-all duration-300">
-            <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-8 text-center text-shadow">
-                Get Your <span class="text-accent">EDC Kit</span>
-            </h2>
-            <p class="text-gray-300 text-center mb-10 max-w-2xl mx-auto">
-                Fill out the form below to get pricing information or to place your order. Our team will respond within 24 hours.
-            </p>
-            <!-- 表单改为onsubmit -->
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="quoteForm" onsubmit="submitForm(event)">
-                <div class="md:col-span-2">
-                    <label for="name" class="block text-gray-300 mb-2">Full Name <span class="text-accent">*</span></label>
-                    <input type="text" id="name" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="John Doe" required>
-                </div>
-                <div class="md:col-span-2">
-                    <label for="email" class="block text-gray-300 mb-2">Email Address <span class="text-accent">*</span></label>
-                    <input type="email" id="email" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="john@example.com" required>
-                </div>
-                <div>
-                    <label for="vehicle" class="block text-gray-300 mb-2">Vehicle Make/Model <span class="text-accent">*</span></label>
-                    <input type="text" id="vehicle" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="BMW M3 2022" required>
-                </div>
-                <div>
-                    <label for="phone" class="block text-gray-300 mb-2">Phone Number</label>
-                    <input type="tel" id="phone" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors" placeholder="+1 (555) 123-4567">
-                </div>
-                <div class="md:col-span-2">
-                    <label for="message" class="block text-gray-300 mb-2">Message (Optional)</label>
-                    <textarea id="message" rows="4" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-lg focus:outline-none focus:border-accent text-white transition-colors resize-none" placeholder="Any specific questions or requirements?"></textarea>
-                </div>
-                <div class="md:col-span-2">
-                    <button type="submit" class="w-full bg-accent text-white py-4 rounded-lg hover:bg-accent/90 transition-all duration-300 font-semibold text-lg hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-1">
-                        Request Quote
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="py-16 bg-secondary">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div class="bg-primary p-8 rounded-xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
-                    <i class="fa-solid fa-envelope text-accent text-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Email Us</h3>
-                <p class="text-gray-400">info@cnracing.com</p>
-            </div>
-            <div class="bg-primary p-8 rounded-xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
-                    <i class="fa-solid fa-phone text-accent text-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Call Us</h3>
-                <p class="text-gray-400">86 519 83906955</p>
-            </div>
-            <div class="bg-primary p-8 rounded-xl border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
-                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto md:mx-0">
-                    <i class="fa-solid fa-location-dot text-accent text-xl"></i>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
-                <p class="text-gray-400">No.,65-18,Xinggang Road, Zhonglou , Changzhou, China</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="bg-black py-12 border-t border-gray-800">
-    <div class="container mx-auto px-4 md:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-            <div class="flex items-center gap-2 mb-6 md:mb-0">
-                <img src="https://cdn.yun.sooce.cn/6/66097/png/1769996434744cd99abb45d74c6668f953a28bd0c435f.png!list?version=1769996436"
-                     alt="LinesRacing"
-                     class="h-9 w-auto px-1">
-            </div>
-            <div class="flex gap-6">
-                <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-        <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-            <p>© 2026 LinesRacing. All rights reserved. Designed for automotive performance enthusiasts.</p>
-        </div>
-    </div>
-</footer>
-
-<button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent/90 hover:scale-110 z-40" onclick="backToTop()">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-
-<!-- 简化版JS（替换addEventListener为onclick/onscroll） -->
-<script>
-    // 移动端菜单切换
-    function toggleMenu() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.classList.toggle('hidden');
-        const icon = document.querySelector('#menuBtn i');
-        if (icon.classList.contains('fa-bars')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    }
-
-    // 回到顶部
-    function backToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // 滚动事件
-    window.onscroll = function() {
-        const backToTopBtn = document.getElementById('backToTop');
-        if (window.scrollY > 300) {
-            backToTopBtn.classList.remove('opacity-0', 'invisible');
-            backToTopBtn.classList.add('opacity-100', 'visible');
-        } else {
-            backToTopBtn.classList.add('opacity-0', 'invisible');
-            backToTopBtn.classList.remove('opacity-100', 'visible');
-        }
-        
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 50) {
-            nav.classList.add('py-2');
-            nav.classList.remove('py-4');
-        } else {
-            nav.classList.add('py-4');
-            nav.classList.remove('py-2');
-        }
-    };
-
-    // 表单提交
-    function submitForm(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const vehicle = document.getElementById('vehicle').value.trim();
-        
-        if (name && email && vehicle) {
-            const successMsg = document.createElement('div');
-            successMsg.className = 'md:col-span-2 bg-green-900/50 border border-green-700 text-green-300 p-4 rounded-lg text-center mt-4';
-            successMsg.textContent = `Thank you ${name}! Your quote request has been submitted successfully. We will contact you at ${email} within 24 hours.`;
-            document.getElementById('quoteForm').appendChild(successMsg);
-            document.getElementById('quoteForm').reset();
-            setTimeout(() => successMsg.remove(), 5000);
-        } else {
-            const errorMsg = document.createElement('div');
-            errorMsg.className = 'md:col-span-2 bg-red-900/50 border border-red-700 text-red-300 p-4 rounded-lg text-center mt-4';
-            errorMsg.textContent = 'Please fill in all required fields (Name, Email, Vehicle Make/Model)';
-            document.getElementById('quoteForm').appendChild(errorMsg);
-            setTimeout(() => errorMsg.remove(), 3000);
-        }
-    }
-
-    // 平滑滚动
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.onclick = function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const navHeight = document.querySelector('nav').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                const mobileMenu = document.getElementById('mobileMenu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    document.querySelector('#menuBtn i').classList.remove('fa-times');
-                    document.querySelector('#menuBtn i').classList.add('fa-bars');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinesRacing EDC Kit - Premium Electronic Damping Cancellation Solution</title>
+    <meta name="description" content="LinesRacing Electronic Damping Cancellation Kit - Plug-and-Play installation, fit for BMW, Mercedes-Benz, Audi, Porsche. 2-year warranty, error code free.">
+    
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17871949048"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17871949048');
+    </script>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        accent: '#E61E2A',
+                        secondary: '#333333',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                    },
                 }
             }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important; }
+        .bg-gradient-dark { background: linear-gradient(to bottom, #000000, #222222) !important; }
+        .scrollbar-hide::-webkit-scrollbar { display: none !important; }
+        .scrollbar-hide { -ms-overflow-style: none !important; scrollbar-width: none !important; }
+        body { opacity: 1 !important; transition: opacity 0.5s ease-in-out !important; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab-btn.active { border-bottom: 2px solid #E61E2A; color: #E61E2A; }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation (Fixed Path & Case Issue) -->
+    <nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <a href="./index.html" title="返回首页" class="hover:opacity-90 transition-all duration-300">
+                    <img src="./linesracing-logo1.png"
+                         alt="LinesRacing"
+                         class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
+                </a>
+            </div>
+<div class="hidden md:flex items-center gap-8">
+    <a href="/Product.html" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all">Product</a>
+    <a href="/shop-by-vehicle.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Shop By Vehicle</a>
+    <a href="/FAQ.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">FAQ</a>
+    <a href="/contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
+    <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+</div>
+<div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
+    <div class="flex flex-col gap-4">
+        <a href="/Product.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Product</a>
+        <a href="/shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
+        <a href="/FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
+        <a href="/contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
+        <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+    </div>
+</div>
+    </nav>
+
+    <!-- Product Hero Section (Fixed Image Path) -->
+    <header class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
+                        <img src="./tuchuli.jpg" 
+                             alt="LinesRacing Electronic Damping Cancellation Kit" 
+                             class="w-full h-auto hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
+                        Electronic Damping<br>
+                        <span class="text-accent">Cancellation Kit</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0">
+                        Precision engineered for performance enthusiasts. Eliminate error codes, enjoy plug-and-play installation, and unlock the full potential of your aftermarket suspension.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
+                        <a href="#specifications" class="bg-accent text-white px-8 py-3 rounded-lg hover:bg-accent/90 transition-colors font-medium hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
+                            View Specifications
+                        </a>
+                        <a href="#compatibility" class="border border-accent text-accent px-8 py-3 rounded-lg hover:bg-accent/10 transition-colors font-medium hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                            Check Compatibility
+                        </a>
+                    </div>
+                    <!-- Key Badges -->
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <span class="bg-secondary px-4 py-2 rounded-full text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-accent"></i> 2-Year Warranty
+                        </span>
+                        <span class="bg-secondary px-4 py-2 rounded-full text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-plug text-accent"></i> Plug-and-Play
+                        </span>
+                        <span class="bg-secondary px-4 py-2 rounded-full text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-certificate text-accent"></i> IP67 Waterproof
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Tabs Section -->
+    <section class="py-16 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 border-b border-gray-700 pb-4">
+                <button class="tab-btn active px-6 py-2 text-lg font-medium hover:text-accent transition-colors" onclick="switchTab('features')">
+                    Key Features
+                </button>
+                <button class="tab-btn px-6 py-2 text-lg font-medium hover:text-accent transition-colors" onclick="switchTab('specifications')">
+                    Specifications
+                </button>
+                <button class="tab-btn px-6 py-2 text-lg font-medium hover:text-accent transition-colors" onclick="switchTab('compatibility')">
+                    Vehicle Compatibility
+                </button>
+                <button class="tab-btn px-6 py-2 text-lg font-medium hover:text-accent transition-colors" onclick="switchTab('comparison')">
+                    Compare with Competitors
+                </button>
+            </div>
+
+            <!-- Tab Content: Features -->
+            <div id="features" class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-triangle-exclamation text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Error Code Prevention</h3>
+                        <p class="text-gray-400">
+                            Eliminates unwanted error codes and warning lights on your dashboard, ensuring seamless integration with your vehicle's electronics. No more ECU misjudgment or ESP interference.
+                        </p>
+                    </div>
+                    <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-plug-circle-bolt text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Plug-and-Play Installation</h3>
+                        <p class="text-gray-400">
+                            Simple installation process with no special tools required - install in 25-30 minutes without professional help. No wire cutting or programming needed.
+                        </p>
+                    </div>
+                    <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-puzzle-piece text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Aftermarket Compatibility</h3>
+                        <p class="text-gray-400">
+                            Fully compatible with all major aftermarket suspension brands (KW, BC Racing, Ohlins, Bilstein) for maximum flexibility and performance.
+                        </p>
+                    </div>
+                    <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-car-side text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Vehicle Specific Design</h3>
+                        <p class="text-gray-400">
+                            Precision engineered for your specific vehicle make and model, ensuring perfect fitment and optimal performance in all driving conditions.
+                        </p>
+                    </div>
+                    <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2 md:col-span-2">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-shield-halved text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Durable Construction</h3>
+                        <p class="text-gray-400">
+                            Aerospace-grade aluminum housing with IP67 waterproof rating, operating temperature range from -40°C to 120°C. Built to withstand extreme track conditions and daily driving.
+                        </p>
+                    </div>
+                    <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2 md:col-span-2">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-check-circle text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-white">Compliance & Warranty</h3>
+                        <p class="text-gray-400">
+                            JAMA certified, 100% compliant with vehicle modification regulations. 2-year manufacturer warranty covers all defects and performance issues for peace of mind.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Specifications -->
+            <div id="specifications" class="tab-content">
+                <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800 mb-8">
+                    <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
+                        <span class="text-accent">Technical</span> Specifications
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Operating Voltage</span>
+                            <span class="text-white font-medium">12V DC (Vehicle Standard)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Current Consumption</span>
+                            <span class="text-white font-medium">&lt; 50mA (Standby), &lt; 150mA (Active)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Operating Temperature</span>
+                            <span class="text-white font-medium">-40°C to +120°C (-40°F to +248°F)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Protection Rating</span>
+                            <span class="text-white font-medium">IP67 (Waterproof & Dustproof)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Housing Material</span>
+                            <span class="text-white font-medium">6061-T6 Aerospace Aluminum</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Connector Type</span>
+                            <span class="text-white font-medium">OEM Vehicle-Specific Plug</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Signal Protocol</span>
+                            <span class="text-white font-medium">CAN Bus / PWM (Vehicle Specific)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Installation Time</span>
+                            <span class="text-white font-medium">25-30 Minutes (Novice)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Dimensions (L×W×H)</span>
+                            <span class="text-white font-medium">85mm × 55mm × 25mm (3.35" × 2.17" × 0.98")</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Weight</span>
+                            <span class="text-white font-medium">85g (3oz)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Certifications</span>
+                            <span class="text-white font-medium">JAMA, CE, RoHS</span>
+                        </div>
+                        <div class="flex justify-between border-b border-gray-700 pb-3">
+                            <span class="text-gray-300">Warranty Period</span>
+                            <span class="text-white font-medium">24 Months (2 Years)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance Data -->
+                <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
+                        <span class="text-accent">Performance</span> Testing Results
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-secondary rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-accent mb-2">0</div>
+                            <p class="text-gray-300">Error Codes After Installation</p>
+                        </div>
+                        <div class="bg-secondary rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-accent mb-2">500+</div>
+                            <p class="text-gray-300">KM Track Testing Without Failure</p>
+                        </div>
+                        <div class="bg-secondary rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-accent mb-2">15%</div>
+                            <p class="text-gray-300">Reduction in Suspension Response Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Vehicle Compatibility -->
+            <div id="compatibility" class="tab-content">
+                <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
+                        <span class="text-accent">Vehicle</span> Compatibility List
+                    </h3>
+                    
+                    <!-- Search Filter -->
+                    <div class="mb-8">
+                        <input type="text" id="vehicleSearch" placeholder="Search by brand/model (e.g. BMW M3)" 
+                               class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-accent">
+                    </div>
+                    
+                    <!-- Compatibility Table -->
+                    <div class="overflow-x-auto scrollbar-hide">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="pb-4 text-accent">Brand</th>
+                                    <th class="pb-4 text-accent">Model</th>
+                                    <th class="pb-4 text-accent">Year Range</th>
+                                    <th class="pb-4 text-accent">Suspension Type</th>
+                                    <th class="pb-4 text-accent">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">BMW</td>
+                                    <td class="py-4">M3 (F80)</td>
+                                    <td class="py-4">2014-2020</td>
+                                    <td class="py-4">EDC Electronic Damping</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">BMW</td>
+                                    <td class="py-4">M4 (F82/F83)</td>
+                                    <td class="py-4">2014-2020</td>
+                                    <td class="py-4">EDC Electronic Damping</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">BMW</td>
+                                    <td class="py-4">3 Series (G20/G28)</td>
+                                    <td class="py-4">2019-Present</td>
+                                    <td class="py-4">EDC / Air Suspension</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">Mercedes-Benz</td>
+                                    <td class="py-4">C63 AMG (W205)</td>
+                                    <td class="py-4">2015-2021</td>
+                                    <td class="py-4">AMG Ride Control</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">Mercedes-Benz</td>
+                                    <td class="py-4">E63 AMG (W213)</td>
+                                    <td class="py-4">2016-Present</td>
+                                    <td class="py-4">AMG Ride Control</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">Audi</td>
+                                    <td class="py-4">RS3 (8V/8Y)</td>
+                                    <td class="py-4">2015-Present</td>
+                                    <td class="py-4">Magnetic Ride</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">Porsche</td>
+                                    <td class="py-4">911 (992)</td>
+                                    <td class="py-4">2019-Present</td>
+                                    <td class="py-4">PASM Active Suspension</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4">Porsche</td>
+                                    <td class="py-4">Cayman (718)</td>
+                                    <td class="py-4">2016-Present</td>
+                                    <td class="py-4">PASM Active Suspension</td>
+                                    <td class="py-4"><span class="bg-green-900/30 text-green-400 px-3 py-1 rounded-full text-sm">Available</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <p class="text-gray-300 mb-4">Don't see your vehicle listed?</p>
+                        <a href="./contact.html" class="inline-block bg-accent text-white px-8 py-3 rounded-lg hover:bg-accent/90 transition-colors font-medium hover:shadow-lg hover:shadow-accent/20">
+                            Request Custom Fit
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Competitor Comparison -->
+            <div id="comparison" class="tab-content">
+                <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
+                        <span class="text-accent">Product</span> Comparison
+                    </h3>
+                    
+                    <div class="overflow-x-auto scrollbar-hide">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-gray-700">
+                                    <th class="pb-4 text-white">Feature</th>
+                                    <th class="pb-4 text-accent">LinesRacing EDC Kit</th>
+                                    <th class="pb-4 text-gray-300">Generic Universal Kit</th>
+                                    <th class="pb-4 text-gray-300">Budget Brand Kit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Vehicle Specific Design</td>
+                                    <td class="py-4"><i class="fa-solid fa-check text-green-500"></i> Yes</td>
+                                    <td class="py-4"><i class="fa-solid fa-xmark text-red-500"></i> No (Universal)</td>
+                                    <td class="py-4"><i class="fa-solid fa-xmark text-red-500"></i> No (Universal)</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Plug-and-Play Installation</td>
+                                    <td class="py-4"><i class="fa-solid fa-check text-green-500"></i> Yes (No Cutting)</td>
+                                    <td class="py-4"><i class="fa-solid fa-minus text-yellow-500"></i> Partial (Wire Cutting Needed)</td>
+                                    <td class="py-4"><i class="fa-solid fa-minus text-yellow-500"></i> Partial (Wire Cutting Needed)</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Error Code Prevention</td>
+                                    <td class="py-4"><i class="fa-solid fa-check text-green-500"></i> 100% Effective</td>
+                                    <td class="py-4"><i class="fa-solid fa-minus text-yellow-500"></i> 70% Effective</td>
+                                    <td class="py-4"><i class="fa-solid fa-xmark text-red-500"></i> 40% Effective</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Waterproof Rating</td>
+                                    <td class="py-4">IP67</td>
+                                    <td class="py-4">IP54</td>
+                                    <td class="py-4">IP42</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Material Quality</td>
+                                    <td class="py-4">Aerospace Aluminum</td>
+                                    <td class="py-4">Plastic</td>
+                                    <td class="py-4">Low-Grade Plastic</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Aftermarket Suspension Compatibility</td>
+                                    <td class="py-4"><i class="fa-solid fa-check text-green-500"></i> All Major Brands</td>
+                                    <td class="py-4"><i class="fa-solid fa-minus text-yellow-500"></i> Limited Brands</td>
+                                    <td class="py-4"><i class="fa-solid fa-xmark text-red-500"></i> Very Limited</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Warranty</td>
+                                    <td class="py-4">2 Years</td>
+                                    <td class="py-4">6 Months</td>
+                                    <td class="py-4">No Warranty</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Compliance Certification</td>
+                                    <td class="py-4"><i class="fa-solid fa-check text-green-500"></i> JAMA, CE</td>
+                                    <td class="py-4"><i class="fa-solid fa-xmark text-red-500"></i> None</td>
+                                    <td class="py-4"><i class="fa-solid fa-xmark text-red-500"></i> None</td>
+                                </tr>
+                                <tr class="border-b border-gray-800 hover:bg-secondary/50 transition-colors">
+                                    <td class="py-4 font-medium">Customer Support</td>
+                                    <td class="py-4">24/7 Technical Support</td>
+                                    <td class="py-4">Email Only (48hr Response)</td>
+                                    <td class="py-4">No Support</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-dark">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold mb-6 text-shadow">
+                Ready to <span class="text-accent">Unlock</span> Your Vehicle's Potential?
+            </h2>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Join thousands of performance enthusiasts who trust LinesRacing for reliable, high-quality EDC cancellation solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="./index.html#purchase" class="bg-accent text-white px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors font-bold text-lg hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
+                    Get Your EDC Kit Now
+                </a>
+                <a href="./case-studies.html" class="border border-accent text-accent px-8 py-4 rounded-lg hover:bg-accent/10 transition-colors font-bold text-lg hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                    View Success Stories
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Fixed Path) -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-2 mb-6 md:mb-0">
+                    <img src="./linesracing-logo1.png"
+                         alt="LinesRacing"
+                         class="h-9 w-auto px-1">
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2026 LinesRacing. All rights reserved. Designed for automotive performance enthusiasts.</p>
+                <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" 
+                   class="text-gray-400 hover:text-white text-sm block mt-2">
+                    苏ICP备2026008120号
+                </a>
+                <div class="mt-4 flex justify-center gap-6 text-sm">
+                    <a href="./privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="./terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent/90 hover:scale-110 z-40" onclick="backToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript (Reused + New Tab Logic) -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+            const icon = document.querySelector('#menuBtn i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Back to Top
+        function backToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll Events
+        window.onscroll = function() {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+            
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
         };
-    });
-</script>
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Vehicle Search Filter
+        document.getElementById('vehicleSearch').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#compatibility table tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.onclick = function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        document.querySelector('#menuBtn i').classList.remove('fa-times');
+                        document.querySelector('#menuBtn i').classList.add('fa-bars');
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+</html>

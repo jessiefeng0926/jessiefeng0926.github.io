@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinesRacing - Shop By Vehicle | EDC Kits for Your Car</title>
+    <meta name="description" content="Shop LinesRacing EDC cancellation kits by vehicle make and model. Find the perfect fit for BMW, Mercedes-Benz, Audi, Porsche and more.">
+    
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17871949048"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17871949048');
+    </script>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#111111',
+                        accent: '#E61E2A',
+                        secondary: '#333333',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important; }
+        .bg-gradient-dark { background: linear-gradient(to bottom, #000000, #222222) !important; }
+        .scrollbar-hide::-webkit-scrollbar { display: none !important; }
+        .scrollbar-hide { -ms-overflow-style: none !important; scrollbar-width: none !important; }
+        body { opacity: 1 !important; transition: opacity 0.5s ease-in-out !important; }
+        .vehicle-card { transition: all 0.3s ease; }
+        .vehicle-card:hover { transform: translateY(-8px); border-color: #E61E2A !important; }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation (Consistent with Other Pages) -->
+    <nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <a href="./index.html" title="返回首页" class="hover:opacity-90 transition-all duration-300">
+                    <img src="./linesracing-logo1.png"
+                         alt="LinesRacing"
+                         class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
+                </a>
+            </div>
+           <div class="hidden md:flex items-center gap-8">
+    <a href="/Product.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Product</a>
+    <a href="/shop-by-vehicle.html" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all">Shop By Vehicle</a>
+    <a href="/FAQ.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">FAQ</a>
+    <a href="/contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
+    <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+</div>
+<div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
+    <div class="flex flex-col gap-4">
+        <a href="/Product.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Product</a>
+        <a href="/shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
+        <a href="/FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
+        <a href="/contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
+        <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+    </div>
+</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
+                Shop By <span class="text-accent">Vehicle</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+                Find the perfect LinesRacing EDC cancellation kit for your specific vehicle make and model. Precision engineered for a perfect fit every time.
+            </p>
+            
+            <!-- Vehicle Search Bar -->
+            <div class="max-w-2xl mx-auto mb-8">
+                <div class="relative">
+                    <input type="text" id="vehicleSearch" placeholder="Search by brand or model (e.g. BMW M3, Audi RS3)"
+                           class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 pl-12 text-white focus:outline-none focus:ring-2 focus:ring-accent">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Brand Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="brand-filter-btn bg-accent text-white px-4 py-2 rounded-full hover:bg-accent/90 transition-colors" onclick="filterByBrand('all')">
+                    All Brands
+                </button>
+                <button class="brand-filter-btn bg-secondary text-white px-4 py-2 rounded-full hover:bg-accent/90 hover:text-white transition-colors" onclick="filterByBrand('bmw')">
+                    BMW
+                </button>
+                <button class="brand-filter-btn bg-secondary text-white px-4 py-2 rounded-full hover:bg-accent/90 hover:text-white transition-colors" onclick="filterByBrand('mercedes')">
+                    Mercedes-Benz
+                </button>
+                <button class="brand-filter-btn bg-secondary text-white px-4 py-2 rounded-full hover:bg-accent/90 hover:text-white transition-colors" onclick="filterByBrand('audi')">
+                    Audi
+                </button>
+                <button class="brand-filter-btn bg-secondary text-white px-4 py-2 rounded-full hover:bg-accent/90 hover:text-white transition-colors" onclick="filterByBrand('porsche')">
+                    Porsche
+                </button>
+                <button class="brand-filter-btn bg-secondary text-white px-4 py-2 rounded-full hover:bg-accent/90 hover:text-white transition-colors" onclick="filterByBrand('other')">
+                    Other Brands
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Vehicle Grid Section -->
+    <section class="py-16 bg-secondary">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- BMW M3 (F80) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="bmw">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tp.png" 
+                             alt="BMW M3 (F80) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                            BEST SELLER
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">BMW M3 (F80)</h3>
+                            <span class="text-accent font-bold">$199.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            EDC cancellation kit for BMW M3 F80 (2014-2020) - Plug-and-play installation, 2-year warranty.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2014-2020</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">EDC Suspension</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Plug & Play</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BMW M4 (F82/F83) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="bmw">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tp2.png" 
+                             alt="BMW M4 (F82/F83) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">BMW M4 (F82/F83)</h3>
+                            <span class="text-accent font-bold">$199.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            EDC cancellation kit for BMW M4 F82/F83 (2014-2020) - Error-free installation.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2014-2020</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">EDC Suspension</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Plug & Play</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mercedes C63 AMG (W205) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="mercedes">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tupian.png" 
+                             alt="Mercedes C63 AMG (W205) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Mercedes C63 AMG (W205)</h3>
+                            <span class="text-accent font-bold">$219.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            AMG Ride Control cancellation kit for Mercedes C63 AMG W205 (2015-2021).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2015-2021</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">AMG Ride Control</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Plug & Play</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mercedes E63 AMG (W213) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="mercedes">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tp3.png" 
+                             alt="Mercedes E63 AMG (W213) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Mercedes E63 AMG (W213)</h3>
+                            <span class="text-accent font-bold">$229.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            AMG Ride Control cancellation kit for Mercedes E63 AMG W213 (2016-Present).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2016-Present</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">AMG Ride Control</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Plug & Play</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audi RS3 (8V/8Y) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="audi">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tp3.png" 
+                             alt="Audi RS3 (8V/8Y) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Audi RS3 (8V/8Y)</h3>
+                            <span class="text-accent font-bold">$209.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Magnetic Ride cancellation kit for Audi RS3 8V/8Y (2015-Present).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2015-Present</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Magnetic Ride</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Plug & Play</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Porsche 911 (992) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="porsche">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tp3.png" 
+                             alt="Porsche 911 (992) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full">
+                            NEW
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Porsche 911 (992)</h3>
+                            <span class="text-accent font-bold">$249.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            PASM cancellation kit for Porsche 911 992 (2019-Present) - IP67 waterproof.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2019-Present</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">PASM Suspension</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">IP67 Rated</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Porsche Cayman (718) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="porsche">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tp3.png" 
+                             alt="Porsche Cayman (718) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">Porsche Cayman (718)</h3>
+                            <span class="text-accent font-bold">$239.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            PASM cancellation kit for Porsche Cayman 718 (2016-Present).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2016-Present</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">PASM Suspension</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Plug & Play</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BMW 3 Series (G20/G28) -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg" data-brand="bmw">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./tp3.png" 
+                             alt="BMW 3 Series (G20/G28) EDC Kit" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold">BMW 3 Series (G20/G28)</h3>
+                            <span class="text-accent font-bold">$189.99</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            EDC/Air suspension cancellation kit for BMW 3 Series G20/G28 (2019-Present).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">2019-Present</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">EDC/Air Suspension</span>
+                            <span class="bg-secondary/50 text-xs text-gray-300 px-2 py-1 rounded">Plug & Play</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="./index.html#purchase" class="flex-1 bg-accent text-white text-center px-4 py-2 rounded hover:bg-accent/90 transition-colors">
+                                Add to Cart
+                            </a>
+                            <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center hover:border-accent hover:text-accent transition-colors">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Request -->
+                <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg flex flex-col justify-center items-center p-8 text-center" data-brand="other">
+                    <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-car-side text-accent text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Can't Find Your Vehicle?</h3>
+                    <p class="text-gray-400 mb-6">
+                        We offer custom EDC cancellation kits for vehicles not listed above. Contact us for a custom solution.
+                    </p>
+                    <a href="./index.html#contact" class="inline-block bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors">
+                        Request Custom Kit
+                    </a>
+                </div>
+            </div>
+            
+            <!-- No Results Message (Hidden by default) -->
+            <div id="noResults" class="hidden text-center py-12">
+                <i class="fa-solid fa-car-slash text-accent text-5xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">No Results Found</h3>
+                <p class="text-gray-400 mb-6">
+                    We couldn't find any EDC kits matching your search criteria. Please try a different search or contact us for assistance.
+                </p>
+                <a href="#" onclick="resetSearch()" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors inline-block">
+                    Reset Search
+                </a>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-secondary border border-gray-700 text-white px-8 py-3 rounded-lg hover:bg-accent/90 hover:border-accent transition-colors hover:shadow-lg hover:shadow-accent/20">
+                    <i class="fa-solid fa-plus mr-2"></i> Load More Vehicles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-gradient-dark">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-12 text-center text-shadow">
+                Why Choose <span class="text-accent">LinesRacing</span> For Your Vehicle
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-primary/80 rounded-xl p-8 border border-gray-800 text-center">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-certificate text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Vehicle Specific Design</h3>
+                    <p class="text-gray-400">
+                        Each kit is precision engineered for your exact vehicle make and model - no universal fitments or compromises.
+                    </p>
+                </div>
+                
+                <div class="bg-primary/80 rounded-xl p-8 border border-gray-800 text-center">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-shield-halved text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">2-Year Warranty</h3>
+                    <p class="text-gray-400">
+                        All our vehicle-specific kits come with a 2-year manufacturer warranty for peace of mind.
+                    </p>
+                </div>
+                
+                <div class="bg-primary/80 rounded-xl p-8 border border-gray-800 text-center">
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-headset text-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Expert Support</h3>
+                    <p class="text-gray-400">
+                        Our team of automotive experts is available to help you find the right kit for your vehicle.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold mb-6 text-shadow">
+                Ready to <span class="text-accent">Upgrade</span> Your Suspension?
+            </h2>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Find the perfect EDC cancellation kit for your vehicle and enjoy error-free suspension upgrades today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="./index.html#purchase" class="bg-accent text-white px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors font-bold text-lg hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
+                    Shop All Kits
+                </a>
+                <a href="./index.html#contact" class="border border-accent text-accent px-8 py-4 rounded-lg hover:bg-accent/10 transition-colors font-bold text-lg hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                    Contact Our Experts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent with Other Pages) -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center gap-2 mb-6 md:mb-0">
+                    <img src="./linesracing-logo1.png"
+                         alt="LinesRacing"
+                         class="h-9 w-auto px-1">
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2026 LinesRacing. All rights reserved. Designed for automotive performance enthusiasts.</p>
+                <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" 
+                   class="text-gray-400 hover:text-white text-sm block mt-2">
+                    苏ICP备2026008120号
+                </a>
+                <div class="mt-4 flex justify-center gap-6 text-sm">
+                    <a href="./privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="./terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent/90 hover:scale-110 z-40" onclick="backToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+            const icon = document.querySelector('#menuBtn i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Back to Top
+        function backToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll Events
+        window.onscroll = function() {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+            
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        };
+
+        // Vehicle Search Functionality
+        document.getElementById('vehicleSearch').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            const vehicleCards = document.querySelectorAll('.vehicle-card');
+            const noResults = document.getElementById('noResults');
+            let resultsFound = false;
+
+            vehicleCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (searchTerm === '' || cardText.includes(searchTerm)) {
+                    card.style.display = '';
+                    resultsFound = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (resultsFound) {
+                noResults.classList.add('hidden');
+            } else {
+                noResults.classList.remove('hidden');
+            }
+        });
+
+        // Filter by Brand
+        function filterByBrand(brand) {
+            const vehicleCards = document.querySelectorAll('.vehicle-card');
+            const brandButtons = document.querySelectorAll('.brand-filter-btn');
+            const noResults = document.getElementById('noResults');
+            let resultsFound = false;
+
+            // Reset button styles
+            brandButtons.forEach(btn => {
+                btn.classList.remove('bg-accent');
+                btn.classList.add('bg-secondary');
+            });
+            event.target.classList.remove('bg-secondary');
+            event.target.classList.add('bg-accent');
+
+            // Filter cards
+            vehicleCards.forEach(card => {
+                if (brand === 'all' || card.dataset.brand === brand) {
+                    card.style.display = '';
+                    resultsFound = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (resultsFound) {
+                noResults.classList.add('hidden');
+            } else {
+                noResults.classList.remove('hidden');
+            }
+
+            // Clear search input
+            document.getElementById('vehicleSearch').value = '';
+        }
+
+        // Reset Search
+        function resetSearch() {
+            document.getElementById('vehicleSearch').value = '';
+            filterByBrand('all');
+            document.getElementById('noResults').classList.add('hidden');
+            
+            // Reset button styles
+            const brandButtons = document.querySelectorAll('.brand-filter-btn');
+            brandButtons.forEach((btn, index) => {
+                if (index === 0) { // First button is "All Brands"
+                    btn.classList.remove('bg-secondary');
+                    btn.classList.add('bg-accent');
+                } else {
+                    btn.classList.remove('bg-accent');
+                    btn.classList.add('bg-secondary');
+                }
+            });
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.onclick = function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        document.querySelector('#menuBtn i').classList.remove('fa-times');
+                        document.querySelector('#menuBtn i').classList.add('fa-bars');
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+</html>
