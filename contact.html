@@ -95,7 +95,11 @@
                 <!-- Contact Form -->
                 <div class="bg-primary rounded-xl p-8 border border-gray-800">
                     <h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
-                    <form id="contactForm" onsubmit="submitForm(event)">
+                    <form 
+                        id="contactForm"
+                         action="https://formspree.io/f/xnjgqwvw"
+                         method="POST"
+                        onsubmit="submitForm(event)">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-300 mb-2">Full Name</label>
                             <input type="text" id="name" name="name" required
@@ -294,12 +298,36 @@
         };
 
         // Form Submission
-        function submitForm(event) {
-            event.preventDefault();
-            // Hide form and show success message
-            document.getElementById('contactForm').classList.add('hidden');
-            document.getElementById('formSuccess').classList.remove('hidden');
-        }
+function submitForm(event) {
+  event.preventDefault(); // 阻止默认跳转
+
+  const form = document.getElementById('contactForm');
+
+  // 先检查必填项有没有填对
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  // 把表单内容发送到 Formspree
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      // 提交成功：隐藏表单，显示成功提示
+      form.classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+    } else {
+      alert('提交失败，请稍后重试');
+    }
+  }).catch(error => {
+    alert('网络错误，请检查网络后再试');
+  });
+}
 
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
