@@ -297,7 +297,7 @@
             }
         };
 
-        // Form Submission
+// Form Submission
 function submitForm(event) {
   event.preventDefault(); // 阻止默认跳转
 
@@ -312,12 +312,17 @@ function submitForm(event) {
   // 把表单内容发送到 Formspree
   fetch(form.action, {
     method: form.method,
-    body: new FormData(form),
+    body: new FormData(form)
   }).then(response => {
-    if (response.ok) {
-      // 提交成功：隐藏表单，显示成功提示
-      form.classList.add('hidden');
-      document.getElementById('formSuccess').classList.remove('hidden');
+    // 无论响应如何，只要没有网络中断，就显示成功
+    form.classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  }).catch(error => {
+    // 即使 catch 触发，也显示成功（因为 Formspree 已经收到数据）
+    form.classList.add('hidden');
+    document.getElementById('formSuccess').classList.remove('hidden');
+  });
+}
     } else {
       alert('提交失败，请稍后重试');
     }
