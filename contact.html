@@ -313,9 +313,6 @@ function submitForm(event) {
   fetch(form.action, {
     method: form.method,
     body: new FormData(form),
-    headers: {
-      'Accept': 'application/json'
-    }
   }).then(response => {
     if (response.ok) {
       // 提交成功：隐藏表单，显示成功提示
