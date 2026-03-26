@@ -15,7 +15,7 @@
       gtag('config', 'AW-17871949048');
     </script>
     
-    <!-- External Resources -->
+    <!-- External Resources (核心：确保样式库加载) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
@@ -51,7 +51,7 @@
     </style>
 </head>
 <body class="bg-black text-white">
-    <!-- Navigation (Fixed Path & Case Issue) -->
+    <!-- Navigation (已添加 Product 下拉菜单) -->
     <nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
         <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
             <div class="flex items-center gap-2">
@@ -61,25 +61,48 @@
                          class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
                 </a>
             </div>
-<div class="hidden md:flex items-center gap-8">
-    <a href="/index.html" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all">Product</a>
-    <a href="/shop-by-vehicle.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Shop By Vehicle</a>
-    <a href="/FAQ.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">FAQ</a>
-    <a href="/contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
-    <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
-</div>
-<div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
-    <div class="flex flex-col gap-4">
-        <a href="/index.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Product</a>
-        <a href="/shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
-        <a href="/FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
-        <a href="/contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
-        <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
-    </div>
-</div>
+            <!-- 桌面端导航（含 Product 下拉菜单） -->
+            <div class="hidden md:flex items-center gap-8">
+                <!-- Product 下拉菜单核心 -->
+                <div class="relative group">
+                    <a href="./index.html" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all flex items-center gap-1">
+                        Product <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </a>
+                    <!-- 下拉菜单 - Suspension 入口 -->
+                    <div class="absolute left-0 top-full mt-2 w-48 bg-black border border-gray-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="./suspension.html" class="block px-4 py-3 text-white hover:bg-accent hover:text-white transition-colors">
+                            Suspension
+                        </a>
+                    </div>
+                </div>
+                <a href="./shop-by-vehicle.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Shop By Vehicle</a>
+                <a href="./FAQ.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">FAQ</a>
+                <a href="./contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
+                <a href="./shop-by-vehicle.html" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+            </div>
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-white text-2xl" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单（含 Suspension 入口） -->
+        <div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
+            <div class="flex flex-col gap-4">
+                <div class="py-2 text-white border-b border-gray-800">
+                    <span class="font-medium">Product</span>
+                    <div class="mt-2 pl-4 flex flex-col gap-2">
+                        <a href="./suspension.html" class="text-sm text-gray-300 hover:text-accent transition-colors">Suspension</a>
+                    </div>
+                </div>
+                <a href="./shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
+                <a href="./FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
+                <a href="./contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
+                <a href="./shop-by-vehicle.html" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Product Hero Section (Fixed Image Path) -->
+    <!-- Product Hero Section -->
     <header class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -477,7 +500,7 @@
         </div>
     </section>
 
-    <!-- Footer (Fixed Path) -->
+    <!-- Footer -->
     <footer class="bg-black py-12 border-t border-gray-800">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center mb-8">
@@ -512,7 +535,7 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript (Reused + New Tab Logic) -->
+    <!-- JavaScript -->
     <script>
         // Mobile Menu Toggle
         function toggleMenu() {
