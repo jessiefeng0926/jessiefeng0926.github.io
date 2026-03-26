@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDSPORTS | Performance Suspension Systems</title>
-    <!-- 引入 Google 字体（GitHub Pages 稳定加载） -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -31,7 +30,6 @@
             justify-content: center;
             padding: 120px 20px;
         }
-        /* 导航栏 - 适配固定定位和滚动效果 */
         .navbar {
             position: fixed;
             top: 0;
@@ -75,7 +73,6 @@
         .nav-menu a:hover {
             color: #FF7D00;
         }
-        /* 首页 Hero 区域 - GitHub 根路径适配 */
         .hero {
             background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.6)), url('/tupian1.png') center/cover no-repeat;
             text-align: center;
@@ -112,7 +109,6 @@
             background: #e67000;
             transform: translateY(-2px);
         }
-        /* 产品区域标题 */
         .section-title {
             text-align: center;
             margin-bottom: 50px;
@@ -135,7 +131,6 @@
             height: 3px;
             background: #FF7D00;
         }
-        /* 产品网格布局 */
         .series-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -153,7 +148,6 @@
             border-color: #FF7D00;
             transform: translateY(-6px);
         }
-        /* 产品图片 - 加载失败占位 */
         .product-img {
             width: 100%;
             height: 240px;
@@ -197,8 +191,6 @@
             background: #FF7D00;
             color: #000;
         }
-
-        /* 工厂区域 - 视频播放核心优化 */
         .factory {
             position: relative;
             overflow: hidden;
@@ -222,7 +214,7 @@
             margin: 0 auto 40px;
             color: #a0a0a0;
         }
-        /* 视频容器 - 强制显示 + 适配所有设备 */
+        /* 视频容器 - 移除加载文字的视觉干扰 */
         .factory-video-container {
             width: 60%;          
             height: 220px;       
@@ -240,19 +232,18 @@
             filter: grayscale(100%) brightness(60%);   
             display: block;
         }
-        /* 视频加载/错误提示 */
+        /* 仅在需要时显示提示文字，默认隐藏 */
         .video-status {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #666;
+            color: #FF7D00;
             font-size: 14px;
             z-index: 1;
             pointer-events: none;
+            display: none; /* 默认隐藏 */
         }
-
-        /* 页脚区域 */
         .footer {
             background: #050505;
             padding: 60px 20px;
@@ -285,8 +276,6 @@
         .footer-links a:hover {
             color: #FF7D00;
         }
-
-        /* 响应式适配 - 移动端优先 */
         @media (max-width: 768px) {
             .series-grid {
                 grid-template-columns: 1fr;
@@ -314,7 +303,6 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 - 根路径链接适配 -->
     <div class="navbar" id="mainNavbar">
         <img src="/logo.png" alt="IDSPORTS Logo" class="logo">
         <ul class="nav-menu">
@@ -325,7 +313,6 @@
         </ul>
     </div>
 
-    <!-- 首页 Hero 区域 -->
     <section class="full-screen hero" id="home">
         <div>
             <h1>iDSPORTS <span>SUSPENSION</span></h1>
@@ -334,7 +321,6 @@
         </div>
     </section>
 
-    <!-- 产品展示区域 -->
     <section class="full-screen" id="products">
         <div class="section-title">
             <h2>Our Suspension Series</h2>
@@ -364,14 +350,14 @@
         </div>
     </section>
 
-    <!-- 工厂视频区域 - 修复自动播放 -->
     <section class="full-screen factory" id="factory">
         <div class="factory-content">
-            <h2>Crafted in Our <span>CNC Factory</span></h2>
+            <h2>Crafted in Our <span>Factory</span></h2>
             <p>Every IDSPORTS suspension is manufactured with precision CNC machining, strict R&D testing, and aerospace-grade materials.</p>
             
             <div class="factory-video-container">
-                <div class="video-status" id="videoStatus">Loading video...</div>
+                <!-- 提示文字默认隐藏 -->
+                <div class="video-status" id="videoStatus">Click to play</div>
                 <video id="factory-video" class="factory-inline-video" muted playsinline loop preload="metadata">
                     <source src="/v1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -380,7 +366,6 @@
         </div>
     </section>
 
-    <!-- 页脚区域 -->
     <footer class="footer" id="contact">
         <img src="/logo.png" alt="IDSPORTS Logo" class="footer-logo">
         <p>© 2026 IDSPORTS. All Rights Reserved. | Performance Suspension Systems</p>
@@ -399,16 +384,15 @@
             nav.classList.toggle('shrink', window.scrollY > 50);
         });
 
-        // 2. 视频自动播放 + 循环切换（GitHub Pages 兼容版）
+        // 2. 视频播放逻辑（无加载文字干扰）
         const videoList = ["/v1.mp4", "/v2.mp4", "/v3.mp4", "/v4.mp4"];
         let currentVideoIdx = 0;
         const video = document.getElementById('factory-video');
         const videoStatus = document.getElementById('videoStatus');
 
-        // 更新视频状态提示
-        function updateStatus(text, color = '#666') {
-            videoStatus.textContent = text;
-            videoStatus.style.color = color;
+        // 显示/隐藏提示文字
+        function toggleStatus(show) {
+            videoStatus.style.display = show ? 'block' : 'none';
         }
 
         // 切换下一个视频
@@ -416,43 +400,50 @@
             currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
             const newSrc = videoList[currentVideoIdx];
             
-            updateStatus('Loading next video...');
             video.src = newSrc;
             video.load();
             
-            // 视频可播放时自动播放
+            // 视频可播放时自动播放，不显示任何提示
             video.oncanplay = () => {
-                updateStatus('');
+                toggleStatus(false);
                 video.play().catch(err => {
-                    updateStatus('Click to play', '#FF7D00');
-                    // 点击视频手动播放
+                    toggleStatus(true); // 仅播放失败时显示"Click to play"
                     video.addEventListener('click', () => {
                         video.play();
-                        updateStatus('');
+                        toggleStatus(false);
                     }, { once: true });
                 });
             };
 
             // 视频加载失败处理
             video.onerror = () => {
-                updateStatus('Video load failed', '#ff4444');
-                setTimeout(switchVideo, 2000); // 2秒后重试下一个
+                toggleStatus(true);
+                videoStatus.textContent = 'Click to retry';
+                video.addEventListener('click', () => {
+                    switchVideo();
+                    toggleStatus(false);
+                }, { once: true });
             };
         }
 
         // 页面加载完成初始化视频
         window.addEventListener('load', () => {
-            // 优先尝试自动播放
+            // 优先自动播放，无任何提示
             video.play().catch(err => {
-                updateStatus('Click to play', '#FF7D00');
+                toggleStatus(true); // 仅自动播放失败时显示点击提示
                 video.addEventListener('click', () => {
                     video.play();
-                    updateStatus('');
+                    toggleStatus(false);
                 }, { once: true });
             });
 
-            // 视频播放结束后切换
+            // 视频播放结束后切换，切换过程无提示
             video.addEventListener('ended', switchVideo);
+            
+            // 视频开始播放时确保隐藏提示
+            video.addEventListener('playing', () => {
+                toggleStatus(false);
+            });
         });
 
         // 3. 图片加载失败容错
