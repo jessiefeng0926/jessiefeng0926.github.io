@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDSPORTS | Performance Suspension Systems</title>
+    <!-- 引入 Google 字体（GitHub Pages 稳定加载） -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -29,6 +31,7 @@
             justify-content: center;
             padding: 120px 20px;
         }
+        /* 导航栏 - 适配固定定位和滚动效果 */
         .navbar {
             position: fixed;
             top: 0;
@@ -72,8 +75,9 @@
         .nav-menu a:hover {
             color: #FF7D00;
         }
+        /* 首页 Hero 区域 - GitHub 根路径适配 */
         .hero {
-            background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.6)), url('tupian1.png') center/cover no-repeat;
+            background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.6)), url('/tupian1.png') center/cover no-repeat;
             text-align: center;
             padding-top: 0;
         }
@@ -108,6 +112,7 @@
             background: #e67000;
             transform: translateY(-2px);
         }
+        /* 产品区域标题 */
         .section-title {
             text-align: center;
             margin-bottom: 50px;
@@ -130,6 +135,7 @@
             height: 3px;
             background: #FF7D00;
         }
+        /* 产品网格布局 */
         .series-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -147,12 +153,18 @@
             border-color: #FF7D00;
             transform: translateY(-6px);
         }
+        /* 产品图片 - 加载失败占位 */
         .product-img {
             width: 100%;
             height: 240px;
             object-fit: cover;
             margin-bottom: 20px;
             border-radius: 2px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
         }
         .series-card h3 {
             font-size: 24px;
@@ -186,11 +198,11 @@
             color: #000;
         }
 
-        /* Factory 区域样式 */
+        /* 工厂区域 - 视频播放核心优化 */
         .factory {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('factory.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('/factory.jpg') center/cover no-repeat;
             text-align: center;
         }
         .factory-content {
@@ -210,8 +222,7 @@
             margin: 0 auto 40px;
             color: #a0a0a0;
         }
-
-        /* 视频方框核心样式 */
+        /* 视频容器 - 强制显示 + 适配所有设备 */
         .factory-video-container {
             width: 60%;          
             height: 220px;       
@@ -220,14 +231,28 @@
             border-radius: 4px;  
             overflow: hidden;    
             background: #000;    
+            position: relative;
         }
         .factory-inline-video {
             width: 100%;         
             height: 100%;        
             object-fit: cover;
             filter: grayscale(100%) brightness(60%);   
+            display: block;
+        }
+        /* 视频加载/错误提示 */
+        .video-status {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+            font-size: 14px;
+            z-index: 1;
+            pointer-events: none;
         }
 
+        /* 页脚区域 */
         .footer {
             background: #050505;
             padding: 60px 20px;
@@ -237,6 +262,9 @@
             height: 36px;
             width: auto;
             margin-bottom: 20px;
+            background: #1a1a1a;
+            padding: 5px;
+            border-radius: 2px;
         }
         .footer p {
             color: #666;
@@ -258,7 +286,7 @@
             color: #FF7D00;
         }
 
-        /* 响应式适配 */
+        /* 响应式适配 - 移动端优先 */
         @media (max-width: 768px) {
             .series-grid {
                 grid-template-columns: 1fr;
@@ -270,21 +298,34 @@
                 width: 90%;  
                 height: 180px; 
             }
+            .nav-menu {
+                gap: 16px;
+            }
+            .navbar {
+                padding: 20px 20px;
+            }
+            .navbar.shrink {
+                padding: 12px 20px;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400,500,600,700,800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 导航栏 - 根路径链接适配 -->
     <div class="navbar" id="mainNavbar">
-        <img src="logo.png" alt="IDSPORTS Logo" class="logo">
+        <img src="/logo.png" alt="IDSPORTS Logo" class="logo">
         <ul class="nav-menu">
-            <li><a href="#home">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#factory">Factory</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
+    <!-- 首页 Hero 区域 -->
     <section class="full-screen hero" id="home">
         <div>
             <h1>iDSPORTS <span>SUSPENSION</span></h1>
@@ -293,27 +334,28 @@
         </div>
     </section>
 
+    <!-- 产品展示区域 -->
     <section class="full-screen" id="products">
         <div class="section-title">
             <h2>Our Suspension Series</h2>
         </div>
         <div class="series-grid">
             <div class="series-card">
-                <img src="product1.png" alt="Street Series Suspension" class="product-img">
+                <img src="/product1.png" alt="Street Series Suspension" class="product-img">
                 <h3>Street Series</h3>
                 <p class="tagline">Daily Comfort + Stable Control</p>
                 <p>Designed for daily commuters and casual drivers, offering smooth damping, reduced road noise, and perfect comfort for city streets and highways.</p>
                 <button class="series-btn">View Details</button>
             </div>
             <div class="series-card">
-                <img src="product1.png" alt="Sport Series Suspension" class="product-img">
+                <img src="/product1.png" alt="Sport Series Suspension" class="product-img">
                 <h3>Sport Series</h3>
                 <p class="tagline">Dynamic Power + Sport Handling</p>
                 <p>Built for driving enthusiasts, balancing sporty responsiveness and daily usability. Minimizes body roll, enhances cornering grip.</p>
                 <button class="series-btn">View Details</button>
             </div>
             <div class="series-card">
-                <img src="product1.png" alt="Track Series Suspension" class="product-img">
+                <img src="/product1.png" alt="Track Series Suspension" class="product-img">
                 <h3>Track Series</h3>
                 <p class="tagline">Extreme Limit + Race Proven</p>
                 <p>Professional grade for track racing and extreme performance. Full adjustable damping, high-strength materials.</p>
@@ -322,65 +364,106 @@
         </div>
     </section>
 
-    <!-- 包含多视频切换的 Factory 区域 -->
+    <!-- 工厂视频区域 - 修复自动播放 -->
     <section class="full-screen factory" id="factory">
         <div class="factory-content">
             <h2>Crafted in Our <span>CNC Factory</span></h2>
             <p>Every IDSPORTS suspension is manufactured with precision CNC machining, strict R&D testing, and aerospace-grade materials.</p>
             
-            <!-- 视频方框 -->
             <div class="factory-video-container">
-                <video id="factory-video" class="factory-inline-video" autoplay muted playsinline>
-                    <source src="factory-inline.mp4" type="video/mp4">
+                <div class="video-status" id="videoStatus">Loading video...</div>
+                <video id="factory-video" class="factory-inline-video" muted playsinline loop preload="metadata">
+                    <source src="/v1.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
     </section>
 
+    <!-- 页脚区域 -->
     <footer class="footer" id="contact">
-        <img src="logo.png" alt="IDSPORTS Logo" class="footer-logo">
+        <img src="/logo.png" alt="IDSPORTS Logo" class="footer-logo">
         <p>© 2026 IDSPORTS. All Rights Reserved. | Performance Suspension Systems</p>
         <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms</a>
-            <a href="#">Dealer Inquiry</a>
-            <a href="#">Support</a>
+            <a href="/privacy-policy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/dealer-inquiry.html">Dealer Inquiry</a>
+            <a href="/support.html">Support</a>
         </div>
     </footer>
 
     <script>
-        // ********** 多视频自动切换核心代码 **********
-        // 视频列表（按你指定的顺序）
-        const videoList = [
-            "v1.mp4",
-            "v2.mp4",
-            "v3.mp4",
-            "v4.mp4"
-        ];
-        let currentVideoIndex = 0; // 当前播放的视频索引
-        const videoElement = document.getElementById("factory-video");
+        // 1. 导航栏滚动收缩效果
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNavbar');
+            nav.classList.toggle('shrink', window.scrollY > 50);
+        });
 
-        // 切换到下一个视频的函数
-        function playNextVideo() {
-            // 切换到下一个索引（循环）
-            currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
-            // 获取下一个视频路径
-            const nextVideoSrc = videoList[currentVideoIndex];
-            // 加载并播放下一个视频
-            videoElement.src = nextVideoSrc;
-            videoElement.load();
-            videoElement.play();
+        // 2. 视频自动播放 + 循环切换（GitHub Pages 兼容版）
+        const videoList = ["/v1.mp4", "/v2.mp4", "/v3.mp4", "/v4.mp4"];
+        let currentVideoIdx = 0;
+        const video = document.getElementById('factory-video');
+        const videoStatus = document.getElementById('videoStatus');
+
+        // 更新视频状态提示
+        function updateStatus(text, color = '#666') {
+            videoStatus.textContent = text;
+            videoStatus.style.color = color;
         }
 
-        // 监听视频播放结束事件，自动切换下一个
-        videoElement.addEventListener("ended", playNextVideo);
+        // 切换下一个视频
+        function switchVideo() {
+            currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
+            const newSrc = videoList[currentVideoIdx];
+            
+            updateStatus('Loading next video...');
+            video.src = newSrc;
+            video.load();
+            
+            // 视频可播放时自动播放
+            video.oncanplay = () => {
+                updateStatus('');
+                video.play().catch(err => {
+                    updateStatus('Click to play', '#FF7D00');
+                    // 点击视频手动播放
+                    video.addEventListener('click', () => {
+                        video.play();
+                        updateStatus('');
+                    }, { once: true });
+                });
+            };
 
-        // ********** 原有导航栏滚动效果 **********
-        window.addEventListener('scroll', function(){
-            const nav = document.getElementById('mainNavbar');
-            if (window.scrollY > 50) nav.classList.add('shrink');
-            else nav.classList.remove('shrink');
+            // 视频加载失败处理
+            video.onerror = () => {
+                updateStatus('Video load failed', '#ff4444');
+                setTimeout(switchVideo, 2000); // 2秒后重试下一个
+            };
+        }
+
+        // 页面加载完成初始化视频
+        window.addEventListener('load', () => {
+            // 优先尝试自动播放
+            video.play().catch(err => {
+                updateStatus('Click to play', '#FF7D00');
+                video.addEventListener('click', () => {
+                    video.play();
+                    updateStatus('');
+                }, { once: true });
+            });
+
+            // 视频播放结束后切换
+            video.addEventListener('ended', switchVideo);
+        });
+
+        // 3. 图片加载失败容错
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                this.style.display = 'none';
+                const placeholder = document.createElement('div');
+                placeholder.textContent = this.alt;
+                placeholder.style.cssText = 'width:100%;height:100%;background:#1a1a1a;color:#666;display:flex;align-items:center;justify-content:center;border-radius:2px;';
+                this.parentNode.replaceChild(placeholder, this);
+            };
         });
     </script>
 </body>
