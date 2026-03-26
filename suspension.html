@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDSPORTS | Performance Suspension Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0A0A;
+            color: #fff;
+            line-height: 1.6;
+        }
+        .full-screen {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px 20px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 40px;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .navbar.shrink {
+            padding: 16px 40px;
+        }
+        .logo {
+            height: 40px;
+            width: auto;
+            transition: all 0.4s ease;
+        }
+        .navbar.shrink .logo {
+            height: 32px;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-menu a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover {
+            color: #FF7D00;
+        }
+        .hero {
+            background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.6)), url('tupian1.png') center/cover no-repeat;
+            text-align: center;
+            padding-top: 0;
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            text-transform: none;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            color: #FF7D00;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #b8b8b8;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #FF7D00;
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .cta-btn:hover {
+            background: #e67000;
+            transform: translateY(-2px);
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #FF7D00;
+        }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .series-card {
+            background: #121212;
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 40px 30px;
+            transition: 0.3s;
+        }
+        .series-card:hover {
+            border-color: #FF7D00;
+            transform: translateY(-6px);
+        }
+        .product-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        .series-card h3 {
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .series-card .tagline {
+            color: #FF7D00;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .series-card p {
+            color: #a0a0a0;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .series-btn {
+            padding: 12px 28px;
+            background: transparent;
+            border: 2px solid #FF7D00;
+            color: #FF7D00;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .series-btn:hover {
+            background: #FF7D00;
+            color: #000;
+        }
+
+        /* Factory 区域样式 */
+        .factory {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('factory.jpg') center/cover no-repeat;
+            text-align: center;
+        }
+        .factory-content {
+            position: relative;
+            z-index: 2;
+        }
+        .factory h2 {
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .factory h2 span {
+            color: #FF7D00;
+        }
+        .factory p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #a0a0a0;
+        }
+
+        /* 视频方框核心样式 */
+        .factory-video-container {
+            width: 60%;          
+            height: 220px;       
+            margin: 40px auto 0; 
+            border: 2px solid rgba(255,255,255,0.1); 
+            border-radius: 4px;  
+            overflow: hidden;    
+            background: #000;    
+        }
+        .factory-inline-video {
+            width: 100%;         
+            height: 100%;        
+            object-fit: cover;
+            filter: grayscale(100%) brightness(60%);   
+        }
+
+        .footer {
+            background: #050505;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .footer-logo {
+            height: 36px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+        .footer p {
+            color: #666;
+            font-size: 13px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .footer-links a:hover {
+            color: #FF7D00;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .series-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-img {
+                height: 180px;
+            }
+            .factory-video-container {
+                width: 90%;  
+                height: 180px; 
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400,500,600,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar" id="mainNavbar">
+        <img src="logo.png" alt="IDSPORTS Logo" class="logo">
+        <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#factory">Factory</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <section class="full-screen hero" id="home">
+        <div>
+            <h1>iDSPORTS <span>SUSPENSION</span></h1>
+            <p>Engineered for Performance, Built for Enthusiasts. Dominate Every Road, Track and Moment with Premium Suspension Systems.</p>
+            <a href="#products" class="cta-btn">Explore Series</a>
+        </div>
+    </section>
+
+    <section class="full-screen" id="products">
+        <div class="section-title">
+            <h2>Our Suspension Series</h2>
+        </div>
+        <div class="series-grid">
+            <div class="series-card">
+                <img src="product1.png" alt="Street Series Suspension" class="product-img">
+                <h3>Street Series</h3>
+                <p class="tagline">Daily Comfort + Stable Control</p>
+                <p>Designed for daily commuters and casual drivers, offering smooth damping, reduced road noise, and perfect comfort for city streets and highways.</p>
+                <button class="series-btn">View Details</button>
+            </div>
+            <div class="series-card">
+                <img src="product1.png" alt="Sport Series Suspension" class="product-img">
+                <h3>Sport Series</h3>
+                <p class="tagline">Dynamic Power + Sport Handling</p>
+                <p>Built for driving enthusiasts, balancing sporty responsiveness and daily usability. Minimizes body roll, enhances cornering grip.</p>
+                <button class="series-btn">View Details</button>
+            </div>
+            <div class="series-card">
+                <img src="product1.png" alt="Track Series Suspension" class="product-img">
+                <h3>Track Series</h3>
+                <p class="tagline">Extreme Limit + Race Proven</p>
+                <p>Professional grade for track racing and extreme performance. Full adjustable damping, high-strength materials.</p>
+                <button class="series-btn">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 包含多视频切换的 Factory 区域 -->
+    <section class="full-screen factory" id="factory">
+        <div class="factory-content">
+            <h2>Crafted in Our <span>CNC Factory</span></h2>
+            <p>Every IDSPORTS suspension is manufactured with precision CNC machining, strict R&D testing, and aerospace-grade materials.</p>
+            
+            <!-- 视频方框 -->
+            <div class="factory-video-container">
+                <video id="factory-video" class="factory-inline-video" autoplay muted playsinline>
+                    <source src="factory-inline.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <img src="logo.png" alt="IDSPORTS Logo" class="footer-logo">
+        <p>© 2026 IDSPORTS. All Rights Reserved. | Performance Suspension Systems</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+            <a href="#">Dealer Inquiry</a>
+            <a href="#">Support</a>
+        </div>
+    </footer>
+
+    <script>
+        // ********** 多视频自动切换核心代码 **********
+        // 视频列表（按你指定的顺序）
+        const videoList = [
+            "v1.mp4",
+            "v2.mp4",
+            "v3.mp4",
+            "v4.mp4"
+        ];
+        let currentVideoIndex = 0; // 当前播放的视频索引
+        const videoElement = document.getElementById("factory-video");
+
+        // 切换到下一个视频的函数
+        function playNextVideo() {
+            // 切换到下一个索引（循环）
+            currentVideoIndex = (currentVideoIndex + 1) % videoList.length;
+            // 获取下一个视频路径
+            const nextVideoSrc = videoList[currentVideoIndex];
+            // 加载并播放下一个视频
+            videoElement.src = nextVideoSrc;
+            videoElement.load();
+            videoElement.play();
+        }
+
+        // 监听视频播放结束事件，自动切换下一个
+        videoElement.addEventListener("ended", playNextVideo);
+
+        // ********** 原有导航栏滚动效果 **********
+        window.addEventListener('scroll', function(){
+            const nav = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) nav.classList.add('shrink');
+            else nav.classList.remove('shrink');
+        });
+    </script>
+</body>
+</html>
