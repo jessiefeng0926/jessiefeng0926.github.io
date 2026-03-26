@@ -249,14 +249,17 @@
             padding: 60px 20px;
             text-align: center;
         }
-        .footer-logo {
-            height: 36px;
-            width: auto;
-            margin-bottom: 20px;
-            background: #1a1a1a;
-            padding: 5px;
-            border-radius: 2px;
-        }
+       .footer-logo {
+           height: 36px;
+           width: auto;
+           margin: 0 auto 20px; /* 居中+底部间距，移除多余样式 */
+           background: transparent !important; /* 强制清空背景 */
+           border: none !important; /* 强制移除边框 */
+           outline: none !important; /* 移除外轮廓 */
+           box-shadow: none !important; /* 移除阴影 */
+           padding: 0 !important; /* 清空内边距 */
+           display: block; /* 确保块级元素，无默认空隙 */
+         }
         .footer p {
             color: #666;
             font-size: 13px;
