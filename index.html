@@ -6,7 +6,7 @@
     <title>LinesRacing EDC Kit - Premium Electronic Damping Cancellation Solution</title>
     <meta name="description" content="LinesRacing Electronic Damping Cancellation Kit - Plug-and-Play installation, fit for BMW, Mercedes-Benz, Audi, Porsche. 2-year warranty, error code free.">
     
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager (适配GitHub Pages加载规则) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17871949048"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,11 +15,11 @@
       gtag('config', 'AW-17871949048');
     </script>
     
-    <!-- External Resources (核心：确保样式库加载) -->
+    <!-- 核心外部资源 (GitHub Pages兼容版) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
-    <!-- Tailwind Config -->
+    <!-- Tailwind 配置 (标准化格式) -->
     <script>
         tailwind.config = {
             theme: {
@@ -38,7 +38,7 @@
         }
     </script>
     
-    <!-- Custom Styles -->
+    <!-- 自定义样式 (符合GitHub Pages渲染规范) -->
     <style>
         .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important; }
         .bg-gradient-dark { background: linear-gradient(to bottom, #000000, #222222) !important; }
@@ -51,64 +51,64 @@
     </style>
 </head>
 <body class="bg-black text-white">
-    <!-- Navigation (已添加 Product 下拉菜单) -->
+    <!-- 导航栏 (GitHub Pages 路径适配 + 下拉菜单) -->
     <nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
         <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <a href="./index.html" title="返回首页" class="hover:opacity-90 transition-all duration-300">
-                    <img src="./linesracing-logo1.png"
+                <a href="/" title="返回首页" class="hover:opacity-90 transition-all duration-300">
+                    <!-- Logo路径：适配GitHub Pages根目录部署 -->
+                    <img src="/linesracing-logo1.png"
                          alt="LinesRacing"
                          class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
                 </a>
             </div>
-            <!-- 桌面端导航（含 Product 下拉菜单） -->
+            <!-- 桌面端导航 (下拉菜单核心) -->
             <div class="hidden md:flex items-center gap-8">
-                <!-- Product 下拉菜单核心 -->
                 <div class="relative group">
-                    <a href="./index.html" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all flex items-center gap-1">
+                    <a href="/" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all flex items-center gap-1">
                         Product <i class="fa-solid fa-chevron-down text-xs"></i>
                     </a>
-                    <!-- 下拉菜单 - Suspension 入口 -->
+                    <!-- 下拉菜单 - Suspension入口 (GitHub Pages路径) -->
                     <div class="absolute left-0 top-full mt-2 w-48 bg-black border border-gray-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <a href="./suspension.html" class="block px-4 py-3 text-white hover:bg-accent hover:text-white transition-colors">
+                        <a href="/suspension.html" class="block px-4 py-3 text-white hover:bg-accent hover:text-white transition-colors">
                             Suspension
                         </a>
                     </div>
                 </div>
-                <a href="./shop-by-vehicle.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Shop By Vehicle</a>
-                <a href="./FAQ.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">FAQ</a>
-                <a href="./contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
-                <a href="./shop-by-vehicle.html" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+                <a href="/shop-by-vehicle.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Shop By Vehicle</a>
+                <a href="/FAQ.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">FAQ</a>
+                <a href="/contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
+                <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-2 rounded hover:bg-accent/90 transition-colors hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
             </div>
             <!-- 移动端菜单按钮 -->
             <button id="menuBtn" class="md:hidden text-white text-2xl" onclick="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <!-- 移动端菜单（含 Suspension 入口） -->
+        <!-- 移动端菜单 (适配GitHub Pages路径) -->
         <div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
             <div class="flex flex-col gap-4">
                 <div class="py-2 text-white border-b border-gray-800">
                     <span class="font-medium">Product</span>
                     <div class="mt-2 pl-4 flex flex-col gap-2">
-                        <a href="./suspension.html" class="text-sm text-gray-300 hover:text-accent transition-colors">Suspension</a>
+                        <a href="/suspension.html" class="text-sm text-gray-300 hover:text-accent transition-colors">Suspension</a>
                     </div>
                 </div>
-                <a href="./shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
-                <a href="./FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
-                <a href="./contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
-                <a href="./shop-by-vehicle.html" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
+                <a href="/shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
+                <a href="/FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
+                <a href="/contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
+                <a href="/shop-by-vehicle.html" class="bg-accent text-white px-6 py-3 rounded hover:bg-accent/90 transition-colors text-center hover:shadow-lg hover:shadow-accent/20">Buy Now</a>
             </div>
         </div>
     </nav>
 
-    <!-- Product Hero Section -->
+    <!-- 产品Hero区域 (GitHub Pages图片路径适配) -->
     <header class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
                     <div class="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
-                        <img src="./tuchuli.jpg" 
+                        <img src="/tuchuli.jpg" 
                              alt="LinesRacing Electronic Damping Cancellation Kit" 
                              class="w-full h-auto hover:scale-105 transition-transform duration-700">
                     </div>
@@ -129,7 +129,7 @@
                             Check Compatibility
                         </a>
                     </div>
-                    <!-- Key Badges -->
+                    <!-- 核心卖点标签 -->
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                         <span class="bg-secondary px-4 py-2 rounded-full text-sm flex items-center gap-2">
                             <i class="fa-solid fa-shield-halved text-accent"></i> 1-Year Warranty
@@ -146,10 +146,10 @@
         </div>
     </header>
 
-    <!-- Product Tabs Section -->
+    <!-- 产品标签页区域 -->
     <section class="py-16 bg-secondary">
         <div class="container mx-auto px-4 md:px-8">
-            <!-- Tab Buttons -->
+            <!-- 标签页按钮 -->
             <div class="flex flex-wrap justify-center gap-4 mb-12 border-b border-gray-700 pb-4">
                 <button class="tab-btn active px-6 py-2 text-lg font-medium hover:text-accent transition-colors" onclick="switchTab('features')">
                     Key Features
@@ -165,7 +165,7 @@
                 </button>
             </div>
 
-            <!-- Tab Content: Features -->
+            <!-- 标签页内容：核心功能 -->
             <div id="features" class="tab-content active">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
@@ -225,7 +225,7 @@
                 </div>
             </div>
 
-            <!-- Tab Content: Specifications -->
+            <!-- 标签页内容：技术规格 -->
             <div id="specifications" class="tab-content">
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800 mb-8">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
@@ -283,7 +283,7 @@
                     </div>
                 </div>
                 
-                <!-- Performance Data -->
+                <!-- 性能测试数据 -->
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
                         <span class="text-accent">Performance</span> Testing Results
@@ -305,20 +305,20 @@
                 </div>
             </div>
 
-            <!-- Tab Content: Vehicle Compatibility -->
+            <!-- 标签页内容：车型兼容性 -->
             <div id="compatibility" class="tab-content">
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
                         <span class="text-accent">Vehicle</span> Compatibility List
                     </h3>
                     
-                    <!-- Search Filter -->
+                    <!-- 搜索筛选框 -->
                     <div class="mb-8">
                         <input type="text" id="vehicleSearch" placeholder="Search by brand/model (e.g. BMW M3)" 
                                class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-accent">
                     </div>
                     
-                    <!-- Compatibility Table -->
+                    <!-- 兼容性表格 -->
                     <div class="overflow-x-auto scrollbar-hide">
                         <table class="w-full text-left">
                             <thead>
@@ -393,14 +393,14 @@
                     
                     <div class="mt-8 text-center">
                         <p class="text-gray-300 mb-4">Don't see your vehicle listed?</p>
-                        <a href="./contact.html" class="inline-block bg-accent text-white px-8 py-3 rounded-lg hover:bg-accent/90 transition-colors font-medium hover:shadow-lg hover:shadow-accent/20">
+                        <a href="/contact.html" class="inline-block bg-accent text-white px-8 py-3 rounded-lg hover:bg-accent/90 transition-colors font-medium hover:shadow-lg hover:shadow-accent/20">
                             Request Custom Fit
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Tab Content: Competitor Comparison -->
+            <!-- 标签页内容：竞品对比 -->
             <div id="comparison" class="tab-content">
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
@@ -480,7 +480,7 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- 行动召唤区域 -->
     <section class="py-20 bg-gradient-dark">
         <div class="container mx-auto px-4 md:px-8 text-center">
             <h2 class="text-[clamp(1.8rem,4vw,2.8rem)] font-bold mb-6 text-shadow">
@@ -490,22 +490,22 @@
                 Join thousands of performance enthusiasts who trust LinesRacing for reliable, high-quality EDC cancellation solutions.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="./index.html#purchase" class="bg-accent text-white px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors font-bold text-lg hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
+                <a href="/#purchase" class="bg-accent text-white px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors font-bold text-lg hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1 duration-300">
                     Get Your EDC Kit Now
                 </a>
-                <a href="./case-studies.html" class="border border-accent text-accent px-8 py-4 rounded-lg hover:bg-accent/10 transition-colors font-bold text-lg hover:shadow-lg transform hover:-translate-y-1 duration-300">
+                <a href="/case-studies.html" class="border border-accent text-accent px-8 py-4 rounded-lg hover:bg-accent/10 transition-colors font-bold text-lg hover:shadow-lg transform hover:-translate-y-1 duration-300">
                     View Success Stories
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- 页脚 (GitHub Pages路径适配) -->
     <footer class="bg-black py-12 border-t border-gray-800">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center mb-8">
                 <div class="flex items-center gap-2 mb-6 md:mb-0">
-                    <img src="./linesracing-logo1.png"
+                    <img src="/linesracing-logo1.png"
                          alt="LinesRacing"
                          class="h-9 w-auto px-1">
                 </div>
@@ -523,21 +523,21 @@
                     苏ICP备2026008120号
                 </a>
                 <div class="mt-4 flex justify-center gap-6 text-sm">
-                    <a href="./privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
-                    <a href="./terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="/privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="/terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
+    <!-- 回到顶部按钮 -->
     <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-accent/90 hover:scale-110 z-40" onclick="backToTop()">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript -->
+    <!-- JavaScript (GitHub Pages 兼容版) -->
     <script>
-        // Mobile Menu Toggle
+        // 移动端菜单切换
         function toggleMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
@@ -551,12 +551,12 @@
             }
         }
 
-        // Back to Top
+        // 回到顶部
         function backToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Scroll Events
+        // 滚动事件
         window.onscroll = function() {
             const backToTopBtn = document.getElementById('backToTop');
             if (window.scrollY > 300) {
@@ -577,26 +577,19 @@
             }
         };
 
-        // Tab Switching Logic
+        // 标签页切换逻辑
         function switchTab(tabId) {
-            // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
-            
-            // Remove active class from all tab buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
-            // Show selected tab content
             document.getElementById(tabId).classList.add('active');
-            
-            // Add active class to clicked button
             event.target.classList.add('active');
         }
 
-        // Vehicle Search Filter
+        // 车型搜索筛选
         document.getElementById('vehicleSearch').addEventListener('keyup', function() {
             const searchTerm = this.value.toLowerCase();
             const rows = document.querySelectorAll('#compatibility table tbody tr');
@@ -611,7 +604,7 @@
             });
         });
 
-        // Smooth Scrolling
+        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.onclick = function(e) {
                 e.preventDefault();
