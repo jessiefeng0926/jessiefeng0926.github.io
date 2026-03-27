@@ -427,9 +427,6 @@
             currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
             const newSrc = videoList[currentVideoIdx];
             
-            toggleStatus(true);
-            videoStatus.textContent = "Loading...";
-            
             video.src = newSrc;
             video.load();
             
