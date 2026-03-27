@@ -81,12 +81,16 @@
             color: #FF7D00;
         }
 
-        /* ———— 轮播背景样式 ———— */
+        /* ———— 轮播背景样式（核心修复：避开导航栏遮挡）———— */
         .hero {
             position: relative;
             overflow: hidden;
             text-align: center;
-            padding-top: 0;
+            padding-top: 88px; /* 让开导航栏高度（28px padding + 40px logo + 20px 间距） */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .hero-slideshow {
             position: absolute;
@@ -98,12 +102,12 @@
         }
         .slide {
             position: absolute;
-            top: 0;
+            top: 88px; /* 从导航栏下方开始显示 */
             left: 0;
             width: 100%;
-            height: 100%;
-            background-size: 100% 100%;;
-            background-position: center;
+            height: calc(100% - 88px); /* 高度 = 全屏 - 导航栏高度 */
+            background-size: cover;
+            background-position: center center; /* 焦点居中，人脸完整显示 */
             background-color: #0A0A0A;
             background-repeat: no-repeat;
             opacity: 0;
@@ -117,13 +121,15 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.7));
-       }
-      .slide.active {
-          opacity: 1;
-       }
+        }
+        .slide.active {
+            opacity: 1;
+        }
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero h1 {
@@ -368,8 +374,8 @@
     </ul>
 </div>
 
-<!-- ———— 轮播区域（已修正为相对路径）———— -->
-<section class="full-screen hero" id="home">
+<!-- ———— 轮播区域（已修复导航栏遮挡问题）———— -->
+<section class="hero" id="home">
     <div class="hero-slideshow">
         <div class="slide active" style="background-image: url('tupian1.jpg')"></div>
         <div class="slide" style="background-image: url('tupian2.jpg')"></div>
