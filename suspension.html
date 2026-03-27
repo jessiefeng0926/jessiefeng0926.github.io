@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>IDSPORTS | Performance Suspension Systems</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -80,11 +80,51 @@
         .nav-menu a:hover {
             color: #FF7D00;
         }
+
+        /* ———— 轮播背景样式 ———— */
         .hero {
-            background: linear-gradient(rgba(10,10,10,0.4), rgba(10,10,10,0.6)), url('/tupian1.jpg') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
             text-align: center;
             padding-top: 0;
         }
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.6));
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
         .hero h1 {
             font-size: 52px;
             font-weight: 800;
@@ -201,7 +241,7 @@
         .factory {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('/factory.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.95)), url('factory.jpg') center/cover no-repeat;
             text-align: center;
         }
         .factory-content {
@@ -252,7 +292,7 @@
             display: none;
         }
         .footer {
-            background: #050505;
+            background: #050000;
             padding: 60px 20px;
             text-align: center;
         }
@@ -316,143 +356,164 @@
     </style>
 </head>
 <body>
-    <div class="navbar" id="mainNavbar">
-        <img src="/logo.png" alt="IDSPORTS Logo" class="logo" loading="lazy">
-        <ul class="nav-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#factory">Factory</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+
+<div class="navbar" id="mainNavbar">
+    <img src="logo.png" alt="IDSPORTS Logo" class="logo" loading="lazy">
+    <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#factory">Factory</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+
+<!-- ———— 轮播区域（已修正为相对路径）———— -->
+<section class="full-screen hero" id="home">
+    <div class="hero-slideshow">
+        <div class="slide active" style="background-image: url('tupian1.jpg')"></div>
+        <div class="slide" style="background-image: url('tupian2.jpg')"></div>
+        <div class="slide" style="background-image: url('tupian3.jpg')"></div>
+        <div class="slide" style="background-image: url('tupian4.jpg')"></div>
     </div>
+    <div class="hero-content">
+        <h1>iDSPORTS <span>SUSPENSION</span></h1>
+        <p>Engineered for Performance, Built for Enthusiasts. Dominate Every Road, Track and Moment with Premium Suspension Systems.</p>
+        <a href="#products" class="cta-btn">Explore Series</a>
+    </div>
+</section>
 
-    <section class="full-screen hero" id="home">
-        <div>
-            <h1>iDSPORTS <span>SUSPENSION</span></h1>
-            <p>Engineered for Performance, Built for Enthusiasts. Dominate Every Road, Track and Moment with Premium Suspension Systems.</p>
-            <a href="#products" class="cta-btn">Explore Series</a>
+<section class="full-screen" id="products">
+    <div class="section-title">
+        <h2>OUR SUSPENSION SERIES</h2>
+    </div>
+    <div class="series-grid">
+        <div class="series-card">
+            <img src="product1.png" alt="Street Series Suspension" class="product-img" loading="lazy">
+            <h3>STREET SERIES</h3>
+            <p class="tagline">DAILY COMFORT + STABLE CONTROL</p>
+            <p>Designed for daily commuters and casual drivers, offering smooth damping, reduced road noise, and perfect comfort for city streets and highways.</p>
+            <button class="series-btn">VIEW DETAILS</button>
         </div>
-    </section>
+        <div class="series-card">
+            <img src="product1.png" alt="Sport Series Suspension" class="product-img" loading="lazy">
+            <h3>SPORT SERIES</h3>
+            <p class="tagline">DYNAMIC POWER + SPORT HANDLING</p>
+            <p>Built for driving enthusiasts, balancing sporty responsiveness and daily usability. Minimizes body roll, enhances cornering grip.</p>
+            <button class="series-btn">VIEW DETAILS</button>
+        </div>
+        <div class="series-card">
+            <img src="product1.png" alt="Track Series Suspension" class="product-img" loading="lazy">
+            <h3>TRACK SERIES</h3>
+            <p class="tagline">EXTREME LIMIT + RACE PROVEN</p>
+            <p>Professional grade for track racing and extreme performance. Full adjustable damping, high-strength materials.</p>
+            <button class="series-btn">VIEW DETAILS</button>
+        </div>
+    </div>
+</section>
 
-    <section class="full-screen" id="products">
-        <div class="section-title">
-            <h2>Our Suspension Series</h2>
+<section class="full-screen factory" id="factory">
+    <div class="factory-content">
+        <h2>Crafted in Our <span>FACTORY</span></h2>
+        <p>Every IDSPORTS suspension is manufactured with precision CNC machining, strict R&D testing, and aerospace-grade materials.</p>
+        
+        <div class="factory-video-container">
+            <div class="video-status" id="videoStatus">Click to play</div>
+            <video 
+                id="factory-video" 
+                class="factory-inline-video" 
+                muted 
+                playsinline 
+                webkit-playsinline
+                preload="none"
+                controlslist="nodownload"
+            >
+                <source src="v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <div class="series-grid">
-            <div class="series-card">
-                <img src="/product1.png" alt="Street Series Suspension" class="product-img" loading="lazy">
-                <h3>Street Series</h3>
-                <p class="tagline">Daily Comfort + Stable Control</p>
-                <p>Designed for daily commuters and casual drivers, offering smooth damping, reduced road noise, and perfect comfort for city streets and highways.</p>
-                <button class="series-btn">View Details</button>
-            </div>
-            <div class="series-card">
-                <img src="/product1.png" alt="Sport Series Suspension" class="product-img" loading="lazy">
-                <h3>Sport Series</h3>
-                <p class="tagline">Dynamic Power + Sport Handling</p>
-                <p>Built for driving enthusiasts, balancing sporty responsiveness and daily usability. Minimizes body roll, enhances cornering grip.</p>
-                <button class="series-btn">View Details</button>
-            </div>
-            <div class="series-card">
-                <img src="/product1.png" alt="Track Series Suspension" class="product-img" loading="lazy">
-                <h3>Track Series</h3>
-                <p class="tagline">Extreme Limit + Race Proven</p>
-                <p>Professional grade for track racing and extreme performance. Full adjustable damping, high-strength materials.</p>
-                <button class="series-btn">View Details</button>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <section class="full-screen factory" id="factory">
-        <div class="factory-content">
-            <h2>Crafted in Our <span>Factory</span></h2>
-            <p>Every IDSPORTS suspension is manufactured with precision CNC machining, strict R&D testing, and aerospace-grade materials.</p>
-            
-            <div class="factory-video-container">
-                <div class="video-status" id="videoStatus">Click to play</div>
-                <video 
-                    id="factory-video" 
-                    class="factory-inline-video" 
-                    muted 
-                    playsinline 
-                    webkit-playsinline
-                    preload="none"
-                    controlslist="nodownload"
-                >
-                    <source src="/v1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </section>
+<footer class="footer" id="contact">
+    <img src="logo.png" alt="IDSPORTS Logo" class="footer-logo" loading="lazy">
+    <p>© 2026 IDSPORTS. All Rights Reserved. | Performance Suspension Systems</p>
+    <div class="footer-links">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/dealer-inquiry.html">Dealer Inquiry</a>
+        <a href="/support.html">Support</a>
+    </div>
+</footer>
 
-    <footer class="footer" id="contact">
-        <img src="/logo.png" alt="IDSPORTS Logo" class="footer-logo" loading="lazy">
-        <p>© 2026 IDSPORTS. All Rights Reserved. | Performance Suspension Systems</p>
-        <div class="footer-links">
-            <a href="/privacy-policy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms</a>
-            <a href="/dealer-inquiry.html">Dealer Inquiry</a>
-            <a href="/support.html">Support</a>
-        </div>
-    </footer>
+<script>
+    // 导航栏
+    window.addEventListener('scroll', function() {
+        const nav = document.getElementById('mainNavbar');
+        nav.classList.toggle('shrink', window.scrollY > 50);
+    });
 
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('mainNavbar');
-            nav.classList.toggle('shrink', window.scrollY > 50);
+    // ———— 背景图轮播 ————
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function changeSlide() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }
+
+    setInterval(changeSlide, 5000); // 5秒切换一张
+
+    // ———— 视频逻辑 ————
+    const videoList = ["v1.mp4", "v2.mp4", "v3.mp4", "v4.mp4", "v5.mp4"];
+    let currentVideoIdx = 0;
+    const video = document.getElementById('factory-video');
+    const videoStatus = document.getElementById('videoStatus');
+    const videoContainer = document.querySelector('.factory-video-container');
+
+    function toggleStatus(show) {
+        videoStatus.style.display = show ? 'block' : 'none';
+    }
+
+    function playVideo() {
+        video.pause();
+        video.play().then(() => {
+            toggleStatus(false);
+        }).catch(err => {
+            toggleStatus(true);
+            videoStatus.textContent = "Click to play";
         });
+    }
 
-        const videoList = ["/v1.mp4", "/v2.mp4", "/v3.mp4", "/v4.mp4", "/v5.mp4"];
-        let currentVideoIdx = 0;
-        const video = document.getElementById('factory-video');
-        const videoStatus = document.getElementById('videoStatus');
-        const videoContainer = document.querySelector('.factory-video-container');
-
-        function toggleStatus(show) {
-            videoStatus.style.display = show ? 'block' : 'none';
-        }
-
-        function playVideo() {
-            video.pause();
-            video.play().then(() => {
-                toggleStatus(false);
-            }).catch(err => {
-                toggleStatus(true);
-                videoStatus.textContent = "Click to play";
-            });
-        }
-
-        function switchVideo() {
-            currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
-            const newSrc = videoList[currentVideoIdx];
-            
-            video.src = newSrc;
-            video.load();
-            
-            video.onloadeddata = () => {
-                toggleStatus(false);
-                playVideo();
-            };
-
-            video.onerror = () => {
-                toggleStatus(true);
-                videoStatus.textContent = "Load failed, click to retry";
-            };
-        }
-
-        window.addEventListener('load', () => {
+    function switchVideo() {
+        currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
+        const newSrc = videoList[currentVideoIdx];
+        video.src = newSrc;
+        video.load();
+        
+        video.onloadeddata = () => {
+            toggleStatus(false);
             playVideo();
-            video.addEventListener('ended', switchVideo);
-            video.addEventListener('playing', () => toggleStatus(false));
-            videoContainer.addEventListener('click', playVideo);
-        });
+        };
+        video.onerror = () => {
+            toggleStatus(true);
+            videoStatus.textContent = "Load failed, click to retry";
+        };
+    }
 
-        document.querySelectorAll('img').forEach(img => {
-            img.onerror = function() {
-                this.style.display = 'none';
-            };
-        });
-    </script>
+    window.addEventListener('load', () => {
+        playVideo();
+        video.addEventListener('ended', switchVideo);
+        video.addEventListener('playing', () => toggleStatus(false));
+        videoContainer.addEventListener('click', playVideo);
+    });
+
+    // 图片错误处理
+    document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+            this.style.display = 'none';
+        };
+    });
+</script>
 </body>
 </html>
