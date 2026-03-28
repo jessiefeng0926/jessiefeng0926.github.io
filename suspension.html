@@ -6,7 +6,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>IDSPORTS | Performance Suspension Systems</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -81,12 +82,11 @@
             color: #FF7D00;
         }
 
-        /* ———— 轮播背景样式（核心修复：避开导航栏遮挡）———— */
         .hero {
             position: relative;
             overflow: hidden;
             text-align: center;
-            padding-top: 88px; /* 让开导航栏高度（28px padding + 40px logo + 20px 间距） */
+            padding-top: 88px;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -102,12 +102,12 @@
         }
         .slide {
             position: absolute;
-            top: 88px; /* 从导航栏下方开始显示 */
+            top: 88px;
             left: 0;
             width: 100%;
-            height: calc(100% - 88px); /* 高度 = 全屏 - 导航栏高度 */
+            height: calc(100% - 88px);
             background-size: cover;
-            background-position: center center; /* 焦点居中，人脸完整显示 */
+            background-position: center center;
             background-color: #0A0A0A;
             background-repeat: no-repeat;
             opacity: 0;
@@ -245,6 +245,19 @@
             background: #FF7D00;
             color: #000;
         }
+
+        .technology {
+            background: #0A0A0A;
+            text-align: center;
+        }
+        .technology-content {
+            max-width: 900px;
+            margin: 0 auto;
+            color: #a0a0a0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
         .factory {
             position: relative;
             overflow: hidden;
@@ -298,66 +311,89 @@
             pointer-events: none;
             display: none;
         }
+
         .footer {
             background: #050000;
-            padding: 60px 20px;
+            padding: 60px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-left, .footer-right {
+            flex: 1;
+            min-width: 280px;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .footer-left {
+            text-align: left;
+        }
+        .footer-right {
+            text-align: right;
+        }
+        .footer-center {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+        }
+        .footer h4 {
+            color: #FF7D00;
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
         .footer-logo {
             height: 36px;
-            width: auto;
-            margin: 0 auto 20px;
-            background: transparent !important;
-            border: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            display: block;
+            margin-bottom: 15px;
         }
         .footer p {
-            color: #666;
+            color: #888;
             font-size: 13px;
+            white-space: nowrap;
         }
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin-top: 16px;
+            gap: 20px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
         .footer-links a {
             color: #888;
-            text-decoration: none;
             font-size: 13px;
+            text-decoration: none;
         }
         .footer-links a:hover {
             color: #FF7D00;
         }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+            margin: 12px 0;
+        }
+        .social-icons a {
+            color: #fff;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: #FF7D00;
+        }
+
         @media (max-width: 768px) {
-            .series-grid {
-                grid-template-columns: 1fr;
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
-            .product-img {
-                height: 180px;
-            }
-            .factory-video-container {
-                width: 98%;  
-                height: 220px; 
-            }
-            .nav-menu {
-                gap: 16px;
-            }
-            .navbar {
-                padding: 20px 20px;
-            }
-            .navbar.shrink {
-                padding: 12px 20px;
-            }
-            .hero h1 {
-                font-size: 36px;
-            }
-            .nav-menu a {
-                font-size: 12px;
+            .footer-left, .footer-right {
+                text-align: center !important;
             }
         }
     </style>
@@ -367,7 +403,7 @@
 <div class="navbar" id="mainNavbar">
     <img src="logo.png" alt="IDSPORTS Logo" class="logo" loading="lazy">
     <ul class="nav-menu">
-        <li><a href="/">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#technology">Technology</a></li>
         <li><a href="#factory">Factory</a></li>
@@ -375,7 +411,6 @@
     </ul>
 </div>
 
-<!-- ———— 轮播区域（已修复导航栏遮挡问题）———— -->
 <section class="hero" id="home">
     <div class="hero-slideshow">
         <div class="slide active" style="background-image: url('tupian1.jpg')"></div>
@@ -419,6 +454,17 @@
     </div>
 </section>
 
+<section class="full-screen technology" id="technology">
+    <div class="section-title">
+        <h2>Our Technology</h2>
+    </div>
+    <div class="technology-content">
+        <p>IDSPORTS uses advanced damping technology, precision CNC machining, and high-strength alloy materials to provide superior handling, stability, and durability for every vehicle.</p>
+        <br>
+        <p>Each suspension system is rigorously tested for performance, reliability, and comfort to meet global standards.</p>
+    </div>
+</section>
+
 <section class="full-screen factory" id="factory">
     <div class="factory-content">
         <h2>Crafted in Our <span>FACTORY</span></h2>
@@ -443,36 +489,54 @@
 </section>
 
 <footer class="footer" id="contact">
-    <img src="logo.png" alt="IDSPORTS Logo" class="footer-logo" loading="lazy">
-    <p>© 2026 IDSPORTS. All Rights Reserved. | Performance Suspension Systems</p>
-    <div class="footer-links">
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/dealer-inquiry.html">Dealer Inquiry</a>
-        <a href="/support.html">Support</a>
+    <div class="footer-left">
+        <h4>North America</h4>
+        5323 FM 1044 Bldg 4<br>
+        New Braunfels, TX 78130
+    </div>
+
+    <div class="footer-center">
+        <img src="logo.png" alt="IDSPORTS Logo" class="footer-logo" loading="lazy">
+        
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <p>© 2026 IDSPORTS. All Rights Reserved. | Performance Suspension Systems</p>
+
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms</a>
+            <a href="#">Dealer Inquiry</a>
+            <a href="#">Support</a>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <h4>China</h4>
+        65-19, Xinggan Rd,<br>
+        Changzhou, JS Province
     </div>
 </footer>
 
 <script>
-    // 导航栏
     window.addEventListener('scroll', function() {
         const nav = document.getElementById('mainNavbar');
         nav.classList.toggle('shrink', window.scrollY > 50);
     });
 
-    // ———— 背景图轮播 ————
     const slides = document.querySelectorAll('.slide');
     let current = 0;
-
     function changeSlide() {
         slides[current].classList.remove('active');
         current = (current + 1) % slides.length;
         slides[current].classList.add('active');
     }
+    setInterval(changeSlide, 5000);
 
-    setInterval(changeSlide, 5000); // 5秒切换一张
-
-    // ———— 视频逻辑 ————
     const videoList = ["v1.mp4", "v2.mp4", "v3.mp4", "v4.mp4", "v5.mp4"];
     let currentVideoIdx = 0;
     const video = document.getElementById('factory-video');
@@ -489,34 +553,22 @@
             toggleStatus(false);
         }).catch(err => {
             toggleStatus(true);
-            videoStatus.textContent = "Click to play";
         });
     }
 
     function switchVideo() {
         currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
-        const newSrc = videoList[currentVideoIdx];
-        video.src = newSrc;
+        video.src = videoList[currentVideoIdx];
         video.load();
-        
-        video.onloadeddata = () => {
-            toggleStatus(false);
-            playVideo();
-        };
-        video.onerror = () => {
-            toggleStatus(true);
-            videoStatus.textContent = "Load failed, click to retry";
-        };
+        video.onloadeddata = playVideo;
     }
 
     window.addEventListener('load', () => {
         playVideo();
         video.addEventListener('ended', switchVideo);
-        video.addEventListener('playing', () => toggleStatus(false));
         videoContainer.addEventListener('click', playVideo);
     });
 
-    // 图片错误处理
     document.querySelectorAll('img').forEach(img => {
         img.onerror = function() {
             this.style.display = 'none';
