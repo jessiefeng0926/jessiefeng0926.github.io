@@ -200,10 +200,9 @@
         }
         .product-img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border-radius: 2px;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: contain;
             background: #1a1a1a;
             display: flex;
             align-items: center;
@@ -461,21 +460,21 @@
     </div>
     <div class="series-grid">
         <div class="series-card">
-            <img src="street.png" alt="Street Series Suspension" class="product-img" loading="lazy">
+            <img src="street.png" alt="Street Series Suspension" class="product-img" style="width:100%;display:block;">
             <h3>STREET SERIES</h3>
             <p class="tagline">DAILY COMFORT + STABLE CONTROL</p>
             <p>Designed for daily commuters and casual drivers, offering smooth damping, reduced road noise, and perfect comfort for city streets and highways.</p>
             <button class="series-btn">VIEW DETAILS</button>
         </div>
         <div class="series-card">
-            <img src="sport.png" alt="Sport Series Suspension" class="product-img" loading="lazy">
+            <img src="sport.png" alt="Sport Series Suspension" class="product-img" style="width:100%;display:block;">
             <h3>SPORT SERIES</h3>
             <p class="tagline">DYNAMIC POWER + SPORT HANDLING</p>
             <p>Built for driving enthusiasts, balancing sporty responsiveness and daily usability. Minimizes body roll, enhances cornering grip.</p>
             <button class="series-btn">VIEW DETAILS</button>
         </div>
         <div class="series-card">
-            <img src="track.png" alt="Track Series Suspension" class="product-img" loading="lazy">
+            <img src="track.png" alt="Track Series Suspension" class="product-img" style="width:100%;display:block;">
             <h3>TRACK SERIES</h3>
             <p class="tagline">EXTREME LIMIT + RACE PROVEN</p>
             <p>Professional grade for track racing and extreme performance. Full adjustable damping, high-strength materials.</p>
@@ -554,6 +553,17 @@
 </footer>
 
 <script>
+    // 背景轮播图代码
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    setInterval(showNextSlide, 5000);
+
     const videoList = ["v1.mp4", "v2.mp4", "v3.mp4", "v4.mp4", "v5.mp4"];
     let currentVideoIdx = 0;
     const video = document.getElementById('factory-video');
