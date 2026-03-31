@@ -506,7 +506,6 @@
                     id="factory-video" 
                     class="factory-inline-video" 
                     muted
-                    loop
                     playsinline
                     x-webkit-airplay="allow"
                     x5-video-player-type="h5"
@@ -555,20 +554,6 @@
 </footer>
 
 <script>
-    window.addEventListener('scroll', function() {
-        const nav = document.getElementById('mainNavbar');
-        nav.classList.toggle('shrink', window.scrollY > 50);
-    });
-
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
-    function changeSlide() {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-    }
-    setInterval(changeSlide, 5000);
-
     const videoList = ["v1.mp4", "v2.mp4", "v3.mp4", "v4.mp4", "v5.mp4"];
     let currentVideoIdx = 0;
     const video = document.getElementById('factory-video');
@@ -579,35 +564,28 @@
         videoStatus.style.display = show ? 'block' : 'none';
     }
 
+    // 播放当前视频
     function playVideo() {
-           video.muted = true; // 强制静音，解决大部分浏览器自动播放限制
-           video.load();
-           video.play().then(() => {
-                  toggleStatus(false);
-           }).catch(err => {
-                toggleStatus(true);
-                console.log("视频自动播放被限制：", err);
-           });
-      }
-
-    function switchVideo() {
-        currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
         video.src = videoList[currentVideoIdx];
-        video.load();
-        video.onloadeddata = playVideo;
+        video.muted = true;
+        video.play().then(() => {
+            toggleStatus(false);
+        }).catch(() => {
+            toggleStatus(true);
+        });
     }
 
-    window.addEventListener('load', () => {
+    // 结束后切下一个
+    video.addEventListener('ended', function () {
+        currentVideoIdx = (currentVideoIdx + 1) % videoList.length;
         playVideo();
-        video.addEventListener('ended', switchVideo);
-        videoContainer.addEventListener('click', playVideo);
     });
 
-    document.querySelectorAll('img').forEach(img => {
-        img.onerror = function() {
-            this.style.display = 'none';
-        };
-    });
+    // 点击播放
+    videoContainer.addEventListener('click', playVideo);
+
+    // 页面加载开始播放
+    window.addEventListener('load', playVideo);
 </script>
 </body>
 </html>
