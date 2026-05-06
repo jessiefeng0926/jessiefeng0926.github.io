@@ -250,14 +250,15 @@ function renderVehicles() {
     </div>`;
   });
 
+  // ✅ 这里已经改成：图标+文字+按钮 完全居中
   html += `
-  <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg flex flex-col items-center justify-center p-5 text-center" data-brand="other">
+  <div class="vehicle-card bg-primary rounded-xl overflow-hidden border border-gray-800 shadow-lg flex flex-col items-center justify-center text-center p-8" data-brand="other">
     <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4">
       <i class="fas fa-car-side text-accent text-2xl"></i>
     </div>
     <h3 class="text-lg font-bold mb-2">Can't Find Your Vehicle?</h3>
     <p class="text-gray-400 text-sm mb-4">We provide custom EDC cancellation kits for any model not listed.</p>
-    <a href="./contact.html" class="bg-accent text-white px-5 py-2 text-sm rounded hover:bg-accent/90 mt-auto">Request Custom Kit</a>
+    <a href="./contact.html" class="bg-accent text-white px-5 py-2 text-sm rounded hover:bg-accent/90">Request Custom Kit</a>
   </div>`;
 
   container.innerHTML = html;
