@@ -51,30 +51,17 @@
     </style>
 </head>
 <body class="bg-black text-white">
-    <!-- 导航栏 (GitHub Pages 路径适配 + 下拉菜单) -->
+    <!-- 导航栏 (已移除下拉菜单) -->
     <nav class="bg-black/80 backdrop-blur-sm fixed w-full z-50 py-4 border-b border-gray-800 transition-all duration-300">
         <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <a href="/" title="返回首页" class="hover:opacity-90 transition-all duration-300">
-                    <!-- Logo路径：适配GitHub Pages根目录部署 -->
-                    <img src="/linesracing-logo1.png"
-                         alt="LinesRacing"
-                         class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
+                    <img src="/linesracing-logo1.png" alt="LinesRacing" class="h-11 w-auto px-1 hover:scale-105 transition-transform duration-300">
                 </a>
             </div>
-            <!-- 桌面端导航 (下拉菜单核心) -->
+            <!-- 桌面端导航（纯净版，无下拉） -->
             <div class="hidden md:flex items-center gap-8">
-                <div class="relative group">
-                    <a href="/" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all flex items-center gap-1">
-                        Product <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </a>
-                    <!-- 下拉菜单 - Suspension入口 (GitHub Pages路径) -->
-                    <div class="absolute left-0 top-full mt-2 w-48 bg-black border border-gray-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <a href="/suspension.html" class="block px-4 py-3 text-white hover:bg-accent hover:text-white transition-colors">
-                            Suspension
-                        </a>
-                    </div>
-                </div>
+                <a href="/" class="text-accent hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-accent after:transition-all">Product</a>
                 <a href="/shop-by-vehicle.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Shop By Vehicle</a>
                 <a href="/FAQ.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">FAQ</a>
                 <a href="/contact.html" class="text-white hover:text-accent transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">Contact</a>
@@ -85,15 +72,10 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <!-- 移动端菜单 (适配GitHub Pages路径) -->
+        <!-- 移动端菜单（纯净版，无下拉） -->
         <div id="mobileMenu" class="md:hidden hidden bg-black/95 w-full py-4 px-4 border-t border-gray-800">
             <div class="flex flex-col gap-4">
-                <div class="py-2 text-white border-b border-gray-800">
-                    <span class="font-medium">Product</span>
-                    <div class="mt-2 pl-4 flex flex-col gap-2">
-                        <a href="/suspension.html" class="text-sm text-gray-300 hover:text-accent transition-colors">Suspension</a>
-                    </div>
-                </div>
+                <a href="/" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Product</a>
                 <a href="/shop-by-vehicle.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">Shop By Vehicle</a>
                 <a href="/FAQ.html" class="py-2 text-white hover:text-accent transition-colors border-b border-gray-800">FAQ</a>
                 <a href="/contact.html" class="py-2 text-accent transition-colors border-b border-gray-800">Contact</a>
@@ -102,15 +84,13 @@
         </div>
     </nav>
 
-    <!-- 产品Hero区域 (GitHub Pages图片路径适配) -->
+    <!-- 产品Hero区域 -->
     <header class="pt-28 pb-16 md:pt-40 md:pb-24 bg-gradient-dark">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
                     <div class="relative rounded-xl overflow-hidden shadow-2xl border border-gray-800">
-                        <img src="/tuchuli.jpg" 
-                             alt="LinesRacing Electronic Damping Cancellation Kit" 
-                             class="w-full h-auto hover:scale-105 transition-transform duration-700">
+                        <img src="/tuchuli.jpg" alt="LinesRacing Electronic Damping Cancellation Kit" class="w-full h-auto hover:scale-105 transition-transform duration-700">
                     </div>
                 </div>
                 <div class="md:w-1/2 text-center md:text-left">
@@ -129,7 +109,6 @@
                             Check Compatibility
                         </a>
                     </div>
-                    <!-- 核心卖点标签 -->
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                         <span class="bg-secondary px-4 py-2 rounded-full text-sm flex items-center gap-2">
                             <i class="fa-solid fa-shield-halved text-accent"></i> 1-Year Warranty
@@ -149,7 +128,6 @@
     <!-- 产品标签页区域 -->
     <section class="py-16 bg-secondary">
         <div class="container mx-auto px-4 md:px-8">
-            <!-- 标签页按钮 -->
             <div class="flex flex-wrap justify-center gap-4 mb-12 border-b border-gray-700 pb-4">
                 <button class="tab-btn active px-6 py-2 text-lg font-medium hover:text-accent transition-colors" onclick="switchTab('features')">
                     Key Features
@@ -165,7 +143,6 @@
                 </button>
             </div>
 
-            <!-- 标签页内容：核心功能 -->
             <div id="features" class="tab-content active">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="bg-primary rounded-xl p-8 border border-gray-800 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-2">
@@ -225,7 +202,6 @@
                 </div>
             </div>
 
-            <!-- 标签页内容：技术规格 -->
             <div id="specifications" class="tab-content">
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800 mb-8">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
@@ -283,7 +259,6 @@
                     </div>
                 </div>
                 
-                <!-- 性能测试数据 -->
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
                         <span class="text-accent">Performance</span> Testing Results
@@ -305,20 +280,17 @@
                 </div>
             </div>
 
-            <!-- 标签页内容：车型兼容性 -->
             <div id="compatibility" class="tab-content">
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
                         <span class="text-accent">Vehicle</span> Compatibility List
                     </h3>
                     
-                    <!-- 搜索筛选框 -->
                     <div class="mb-8">
                         <input type="text" id="vehicleSearch" placeholder="Search by brand/model (e.g. BMW M3)" 
                                class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-accent">
                     </div>
                     
-                    <!-- 兼容性表格 -->
                     <div class="overflow-x-auto scrollbar-hide">
                         <table class="w-full text-left">
                             <thead>
@@ -400,7 +372,6 @@
                 </div>
             </div>
 
-            <!-- 标签页内容：竞品对比 -->
             <div id="comparison" class="tab-content">
                 <div class="bg-primary rounded-xl p-8 md:p-12 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-8 text-center text-shadow">
@@ -500,14 +471,12 @@
         </div>
     </section>
 
-    <!-- 页脚 (GitHub Pages路径适配) -->
+    <!-- 页脚 -->
     <footer class="bg-black py-12 border-t border-gray-800">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center mb-8">
                 <div class="flex items-center gap-2 mb-6 md:mb-0">
-                    <img src="/linesracing-logo1.png"
-                         alt="LinesRacing"
-                         class="h-9 w-auto px-1">
+                    <img src="/linesracing-logo1.png" alt="LinesRacing" class="h-9 w-auto px-1">
                 </div>
                 <div class="flex gap-6">
                     <a href="#" class="text-gray-400 hover:text-accent transition-colors text-xl hover:scale-110 duration-300"><i class="fa-brands fa-facebook-f"></i></a>
@@ -518,8 +487,7 @@
             </div>
             <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
                 <p>© 2026 LinesRacing. All rights reserved. Designed for automotive performance enthusiasts.</p>
-                <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" 
-                   class="text-gray-400 hover:text-white text-sm block mt-2">
+                <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white text-sm block mt-2">
                     苏ICP备2026008120号
                 </a>
                 <div class="mt-4 flex justify-center gap-6 text-sm">
@@ -535,36 +503,28 @@
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- JavaScript (GitHub Pages 兼容版) -->
+    <!-- JavaScript -->
     <script>
-        // 移动端菜单切换
         function toggleMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
             const icon = document.querySelector('#menuBtn i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         }
 
-        // 回到顶部
         function backToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 滚动事件
         window.onscroll = function() {
-            const backToTopBtn = document.getElementById('backToTop');
+            const btn = document.getElementById('backToTop');
             if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('opacity-0', 'invisible');
-                backToTopBtn.classList.add('opacity-100', 'visible');
+                btn.classList.remove('opacity-0','invisible');
+                btn.classList.add('opacity-100','visible');
             } else {
-                backToTopBtn.classList.add('opacity-0', 'invisible');
-                backToTopBtn.classList.remove('opacity-100', 'visible');
+                btn.classList.add('opacity-0','invisible');
+                btn.classList.remove('opacity-100','visible');
             }
             
             const nav = document.querySelector('nav');
@@ -577,50 +537,29 @@
             }
         };
 
-        // 标签页切换逻辑
         function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
             event.target.classList.add('active');
         }
 
-        // 车型搜索筛选
         document.getElementById('vehicleSearch').addEventListener('keyup', function() {
-            const searchTerm = this.value.toLowerCase();
-            const rows = document.querySelectorAll('#compatibility table tbody tr');
-            
-            rows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
+            const kw = this.value.toLowerCase();
+            document.querySelectorAll('#compatibility tbody tr').forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(kw) ? '' : 'none';
             });
         });
 
-        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.onclick = function(e) {
+            anchor.onclick = e => {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    const mobileMenu = document.getElementById('mobileMenu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        document.querySelector('#menuBtn i').classList.remove('fa-times');
-                        document.querySelector('#menuBtn i').classList.add('fa-bars');
-                    }
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    const nav = document.querySelector('nav');
+                    window.scrollTo({ top: target.offsetTop - nav.offsetHeight, behavior: 'smooth' });
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                    document.querySelector('#menuBtn i').className = 'fa-solid fa-bars';
                 }
             };
         });
